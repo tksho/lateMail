@@ -12,6 +12,7 @@
 		AB53B6641F4D507E00BDD317 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB53B6621F4D507E00BDD317 /* Main.storyboard */; };
 		AB53B6661F4D507E00BDD317 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB53B6651F4D507E00BDD317 /* Assets.xcassets */; };
 		AB53B6691F4D507E00BDD317 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB53B6671F4D507E00BDD317 /* LaunchScreen.storyboard */; };
+		AB53B6711F4D65F900BDD317 /* Intro.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB53B6701F4D65F900BDD317 /* Intro.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		AB53B6651F4D507E00BDD317 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AB53B6681F4D507E00BDD317 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AB53B66A1F4D507E00BDD317 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AB53B6701F4D65F900BDD317 /* Intro.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Intro.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 				AB53B65E1F4D507E00BDD317 /* AppDelegate.swift */,
 				AB53B6601F4D507E00BDD317 /* ViewController.swift */,
 				AB53B6621F4D507E00BDD317 /* Main.storyboard */,
+				AB53B6701F4D65F900BDD317 /* Intro.storyboard */,
 				AB53B6651F4D507E00BDD317 /* Assets.xcassets */,
 				AB53B6671F4D507E00BDD317 /* LaunchScreen.storyboard */,
 				AB53B66A1F4D507E00BDD317 /* Info.plist */,
@@ -126,6 +129,7 @@
 				AB53B6691F4D507E00BDD317 /* LaunchScreen.storyboard in Resources */,
 				AB53B6661F4D507E00BDD317 /* Assets.xcassets in Resources */,
 				AB53B6641F4D507E00BDD317 /* Main.storyboard in Resources */,
+				AB53B6711F4D65F900BDD317 /* Intro.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
