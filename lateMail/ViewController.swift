@@ -7,9 +7,12 @@
 //
 
 import UIKit
+import Accounts
 
 class ViewController: UIViewController {
 
+    @IBOutlet var shareBtn:UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -20,6 +23,16 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func pushActivityButton(sender: AnyObject) {
+        let text = "sample text"
+        let items = [text]
+        
+        // UIActivityViewControllerをインスタンス化
+        let activityVc = UIActivityViewController(activityItems: items, applicationActivities: nil)
+        
+        // UIAcitivityViewControllerを表示
+        self.present(activityVc, animated: true, completion: nil)
+    }
 
 }
 

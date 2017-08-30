@@ -12,7 +12,7 @@
         <!--View Controller-->
         <scene sceneID="ejd-u8-KXf">
             <objects>
-                <viewController storyboardIdentifier="main" id="DMO-J2-8Ia" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="main" id="DMO-J2-8Ia" customClass="ViewController" customModule="lateMail" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="L13-i9-pI8"/>
                         <viewControllerLayoutGuide type="bottom" id="89B-eY-3yg"/>
@@ -107,12 +107,23 @@
                                             <segment title="ほか"/>
                                         </segments>
                                     </segmentedControl>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Apz-fv-EC8">
+                                        <rect key="frame" x="172" y="500" width="31" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="送る"/>
+                                        <connections>
+                                            <action selector="pushActivityButtonWithSender:" destination="DMO-J2-8Ia" eventType="touchUpInside" id="EOV-EK-jTd"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="shareBtn" destination="Apz-fv-EC8" id="haC-Il-47L"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rST-xg-YL4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
