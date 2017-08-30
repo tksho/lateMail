@@ -12,7 +12,7 @@
         <!--View Controller-->
         <scene sceneID="ejd-u8-KXf">
             <objects>
-                <viewController id="DMO-J2-8Ia" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="main" id="DMO-J2-8Ia" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="L13-i9-pI8"/>
                         <viewControllerLayoutGuide type="bottom" id="89B-eY-3yg"/>
