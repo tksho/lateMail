@@ -24,15 +24,23 @@ class ViewController: UIViewController {
     }
 
     @IBAction func pushActivityButton(sender: AnyObject) {
-        let text = "sample text"
-        let items = [text]
+        let body = "本文です"
+        let items = [body]
         
         // UIActivityViewControllerをインスタンス化
         let activityVc = UIActivityViewController(activityItems: items, applicationActivities: nil)
+
+        // メール件名
+        let title = "件名です"
+        activityVc.setValue(title, forKey: "Subject")
         
         // UIAcitivityViewControllerを表示
         self.present(activityVc, animated: true, completion: nil)
     }
 
+    @IBAction func pushSendMail() {
+        print("mail")
+    }
+    
 }
 
