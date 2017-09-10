@@ -8,8 +8,9 @@
 
 import UIKit
 import Accounts
+import MessageUI
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, MFMailComposeViewControllerDelegate {
 
     @IBOutlet var shareBtn:UIButton!
     
@@ -40,6 +41,38 @@ class ViewController: UIViewController {
 
     @IBAction func pushSendMail() {
         print("mail")
+        //メールを送信できるかチェック
+        if MFMailComposeViewController.canSendMail()==false {
+            print("Email Send Failed")
+            return
+        }
+        
+        var mailViewController = MFMailComposeViewController()
+        var toRecipients = ["to@1gmail.com","tksho112@gmail.com"] //Toのアドレス指定
+        var CcRecipients = ["cc@1gmail.com","Cc2@1gmail.com"] //Ccのアドレス指定
+        var BccRecipients = ["Bcc@1gmail.com","Bcc2@1gmail.com"] //Bccのアドレス指定
+        
+        mailViewController.mailComposeDelegate = self
+        mailViewController.setSubject("メールの件名")
+        mailViewController.setToRecipients(toRecipients) //Toアドレスの表示
+        mailViewController.setCcRecipients(CcRecipients) //Ccアドレスの表示
+        mailViewController.setBccRecipients(BccRecipients) //Bccアドレスの表示
+        mailViewController.setMessageBody("メールの本文", isHTML: false)
+
+        self.present(mailViewController, animated: true, completion: nil)
+    }
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        switch result {
+        case .cancelled:
+            print("キャンセル")
+        case .saved:
+            print("下書き保存")
+        case .sent:
+            print("送信成功")
+        default:
+            print("送信失敗")
+        }
+        dismiss(animated: true, completion: nil)
     }
     
 }

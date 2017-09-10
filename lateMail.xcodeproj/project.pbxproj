@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7944956D1F65309100F20F42 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7944956C1F65309100F20F42 /* MessageUI.framework */; };
 		AB53B65F1F4D507E00BDD317 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB53B65E1F4D507E00BDD317 /* AppDelegate.swift */; };
 		AB53B6611F4D507E00BDD317 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB53B6601F4D507E00BDD317 /* ViewController.swift */; };
 		AB53B6641F4D507E00BDD317 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB53B6621F4D507E00BDD317 /* Main.storyboard */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7944956C1F65309100F20F42 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		AB53B65B1F4D507E00BDD317 /* lateMail.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = lateMail.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB53B65E1F4D507E00BDD317 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AB53B6601F4D507E00BDD317 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -31,17 +33,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7944956D1F65309100F20F42 /* MessageUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7944956B1F65309100F20F42 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7944956C1F65309100F20F42 /* MessageUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		AB53B6521F4D507D00BDD317 = {
 			isa = PBXGroup;
 			children = (
 				AB53B65D1F4D507E00BDD317 /* lateMail */,
 				AB53B65C1F4D507E00BDD317 /* Products */,
+				7944956B1F65309100F20F42 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,8 +72,8 @@
 				AB53B6601F4D507E00BDD317 /* ViewController.swift */,
 				AB53B6621F4D507E00BDD317 /* Main.storyboard */,
 				AB53B6701F4D65F900BDD317 /* Intro.storyboard */,
-				AB53B6651F4D507E00BDD317 /* Assets.xcassets */,
 				AB53B6671F4D507E00BDD317 /* LaunchScreen.storyboard */,
+				AB53B6651F4D507E00BDD317 /* Assets.xcassets */,
 				AB53B66A1F4D507E00BDD317 /* Info.plist */,
 			);
 			path = lateMail;
@@ -99,6 +111,7 @@
 				TargetAttributes = {
 					AB53B65A1F4D507D00BDD317 = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 39K484354G;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -264,7 +277,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 39K484354G;
 				INFOPLIST_FILE = lateMail/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.tksho.lateMail;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -276,7 +291,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 39K484354G;
 				INFOPLIST_FILE = lateMail/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.tksho.lateMail;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -303,6 +320,7 @@
 				AB53B66F1F4D507E00BDD317 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
