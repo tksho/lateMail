@@ -48,9 +48,9 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate {
         }
         
         var mailViewController = MFMailComposeViewController()
-        var toRecipients = ["to@1gmail.com","tksho112@gmail.com"] //Toのアドレス指定
-        var CcRecipients = ["cc@1gmail.com","Cc2@1gmail.com"] //Ccのアドレス指定
-        var BccRecipients = ["Bcc@1gmail.com","Bcc2@1gmail.com"] //Bccのアドレス指定
+        let toRecipients = ["to@1gmail.com","tksho112@gmail.com"] //Toのアドレス指定
+        let CcRecipients = ["cc@1gmail.com","Cc2@1gmail.com"] //Ccのアドレス指定
+        let BccRecipients = ["Bcc@1gmail.com","Bcc2@1gmail.com"] //Bccのアドレス指定
         
         mailViewController.mailComposeDelegate = self
         mailViewController.setSubject("メールの件名")
