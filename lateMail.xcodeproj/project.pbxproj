@@ -13,9 +13,14 @@
 		AB53B6661F4D507E00BDD317 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB53B6651F4D507E00BDD317 /* Assets.xcassets */; };
 		AB53B6691F4D507E00BDD317 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB53B6671F4D507E00BDD317 /* LaunchScreen.storyboard */; };
 		AB53B6711F4D65F900BDD317 /* Intro.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB53B6701F4D65F900BDD317 /* Intro.storyboard */; };
+		AB53B6861F56925D00BDD317 /* SlideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB53B6851F56925D00BDD317 /* SlideViewController.swift */; };
+		ABA8E7C11F5696FD0044D613 /* LeftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA8E7C01F5696FD0044D613 /* LeftViewController.swift */; };
+		ABA8E7C51F56A2EE0044D613 /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = ABA8E7C41F56A2EE0044D613 /* menu.png */; };
+		C1074CF117CB99D74DB67F02 /* Pods_lateMail.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD333AD34B05E5C84168DAFE /* Pods_lateMail.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A2F0F488B8DAD781A32E03C8 /* Pods-lateMail.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lateMail.release.xcconfig"; path = "Pods/Target Support Files/Pods-lateMail/Pods-lateMail.release.xcconfig"; sourceTree = "<group>"; };
 		AB53B65B1F4D507E00BDD317 /* lateMail.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = lateMail.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB53B65E1F4D507E00BDD317 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AB53B6601F4D507E00BDD317 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -24,6 +29,11 @@
 		AB53B6681F4D507E00BDD317 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AB53B66A1F4D507E00BDD317 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AB53B6701F4D65F900BDD317 /* Intro.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Intro.storyboard; sourceTree = "<group>"; };
+		AB53B6851F56925D00BDD317 /* SlideViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideViewController.swift; sourceTree = "<group>"; };
+		ABA8E7C01F5696FD0044D613 /* LeftViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftViewController.swift; sourceTree = "<group>"; };
+		ABA8E7C41F56A2EE0044D613 /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu.png; sourceTree = "<group>"; };
+		E483E42133AB31746968FFBD /* Pods-lateMail.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lateMail.debug.xcconfig"; path = "Pods/Target Support Files/Pods-lateMail/Pods-lateMail.debug.xcconfig"; sourceTree = "<group>"; };
+		FD333AD34B05E5C84168DAFE /* Pods_lateMail.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_lateMail.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +41,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C1074CF117CB99D74DB67F02 /* Pods_lateMail.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3562E379169C0EBFF2DB6203 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FD333AD34B05E5C84168DAFE /* Pods_lateMail.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		87CDE0773CE00924CDBD0F44 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E483E42133AB31746968FFBD /* Pods-lateMail.debug.xcconfig */,
+				A2F0F488B8DAD781A32E03C8 /* Pods-lateMail.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		AB53B6521F4D507D00BDD317 = {
 			isa = PBXGroup;
 			children = (
 				AB53B65D1F4D507E00BDD317 /* lateMail */,
 				AB53B65C1F4D507E00BDD317 /* Products */,
+				87CDE0773CE00924CDBD0F44 /* Pods */,
+				3562E379169C0EBFF2DB6203 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -57,10 +87,13 @@
 			isa = PBXGroup;
 			children = (
 				AB53B65E1F4D507E00BDD317 /* AppDelegate.swift */,
+				AB53B6851F56925D00BDD317 /* SlideViewController.swift */,
+				ABA8E7C01F5696FD0044D613 /* LeftViewController.swift */,
 				AB53B6601F4D507E00BDD317 /* ViewController.swift */,
 				AB53B6621F4D507E00BDD317 /* Main.storyboard */,
 				AB53B6701F4D65F900BDD317 /* Intro.storyboard */,
 				AB53B6651F4D507E00BDD317 /* Assets.xcassets */,
+				ABA8E7C41F56A2EE0044D613 /* menu.png */,
 				AB53B6671F4D507E00BDD317 /* LaunchScreen.storyboard */,
 				AB53B66A1F4D507E00BDD317 /* Info.plist */,
 			);
@@ -74,9 +107,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AB53B66D1F4D507E00BDD317 /* Build configuration list for PBXNativeTarget "lateMail" */;
 			buildPhases = (
+				73BBDCB8FEAB0CEC16415F91 /* [CP] Check Pods Manifest.lock */,
 				AB53B6571F4D507D00BDD317 /* Sources */,
 				AB53B6581F4D507D00BDD317 /* Frameworks */,
 				AB53B6591F4D507D00BDD317 /* Resources */,
+				C977B9F3C85D2A07873CDCBC /* [CP] Embed Pods Frameworks */,
+				89D5B96AEE611D6E147ABD4E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -127,6 +163,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AB53B6691F4D507E00BDD317 /* LaunchScreen.storyboard in Resources */,
+				ABA8E7C51F56A2EE0044D613 /* menu.png in Resources */,
 				AB53B6661F4D507E00BDD317 /* Assets.xcassets in Resources */,
 				AB53B6641F4D507E00BDD317 /* Main.storyboard in Resources */,
 				AB53B6711F4D65F900BDD317 /* Intro.storyboard in Resources */,
@@ -135,13 +172,63 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		73BBDCB8FEAB0CEC16415F91 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		89D5B96AEE611D6E147ABD4E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-lateMail/Pods-lateMail-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C977B9F3C85D2A07873CDCBC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-lateMail/Pods-lateMail-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		AB53B6571F4D507D00BDD317 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				AB53B6611F4D507E00BDD317 /* ViewController.swift in Sources */,
+				ABA8E7C11F5696FD0044D613 /* LeftViewController.swift in Sources */,
 				AB53B65F1F4D507E00BDD317 /* AppDelegate.swift in Sources */,
+				AB53B6861F56925D00BDD317 /* SlideViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,6 +349,7 @@
 		};
 		AB53B66E1F4D507E00BDD317 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E483E42133AB31746968FFBD /* Pods-lateMail.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = lateMail/Info.plist;
@@ -274,6 +362,7 @@
 		};
 		AB53B66F1F4D507E00BDD317 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A2F0F488B8DAD781A32E03C8 /* Pods-lateMail.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = lateMail/Info.plist;
@@ -303,6 +392,7 @@
 				AB53B66F1F4D507E00BDD317 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
