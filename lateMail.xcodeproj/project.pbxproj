@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AB01F0341F679E5B00866E39 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB01F0331F679E5B00866E39 /* MessageUI.framework */; };
 		AB53B65F1F4D507E00BDD317 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB53B65E1F4D507E00BDD317 /* AppDelegate.swift */; };
 		AB53B6611F4D507E00BDD317 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB53B6601F4D507E00BDD317 /* ViewController.swift */; };
 		AB53B6641F4D507E00BDD317 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB53B6621F4D507E00BDD317 /* Main.storyboard */; };
@@ -21,6 +22,7 @@
 
 /* Begin PBXFileReference section */
 		A2F0F488B8DAD781A32E03C8 /* Pods-lateMail.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lateMail.release.xcconfig"; path = "Pods/Target Support Files/Pods-lateMail/Pods-lateMail.release.xcconfig"; sourceTree = "<group>"; };
+		AB01F0331F679E5B00866E39 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		AB53B65B1F4D507E00BDD317 /* lateMail.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = lateMail.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB53B65E1F4D507E00BDD317 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AB53B6601F4D507E00BDD317 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -41,6 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB01F0341F679E5B00866E39 /* MessageUI.framework in Frameworks */,
 				C1074CF117CB99D74DB67F02 /* Pods_lateMail.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -51,6 +54,7 @@
 		3562E379169C0EBFF2DB6203 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AB01F0331F679E5B00866E39 /* MessageUI.framework */,
 				FD333AD34B05E5C84168DAFE /* Pods_lateMail.framework */,
 			);
 			name = Frameworks;
