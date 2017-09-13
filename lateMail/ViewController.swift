@@ -13,7 +13,65 @@ import MessageUI
 
 class ViewController: UIViewController, MFMailComposeViewControllerDelegate{
 
+
     @IBOutlet var shareBtn:UIButton!
+    @IBOutlet var mailTitle:UITextView!
+    @IBOutlet var mailBody:UITextView!
+    @IBOutlet var reason:UISegmentedControl!
+    @IBAction func segmentedControlChanged(_ sender: UISegmentedControl) {
+        print("segmentedControlChanged")
+        let selectedIndex = reason.selectedSegmentIndex
+        switch sender.selectedSegmentIndex {
+        case 0:
+            print("0")
+            print(reason.titleForSegment(at: selectedIndex))
+        case 1:
+            print("1")
+            print(reason.titleForSegment(at: selectedIndex))
+        case 2:
+            print("2")
+            print(reason.titleForSegment(at: selectedIndex))
+        default:
+            break
+        }
+    }
+/*
+    @IBOutlet var reasonControl:UISegmentedControl!
+    @IBOutlet var reason:UISegmentedControlSegment!
+    @IBOutlet var timeControl:UISegmentedControl!
+    @IBOutlet var time:UISegmentedControlSegment!
+
+    //----------------------------------
+    // 関数名：clickReason
+    // 説明：理由枠が押された
+    //----------------------------------
+    @IBAction func clickReason() {
+        print("clickReason")
+        print(self.reasonControl.title)
+        print(self.time)
+        print(self.mailBody.text)
+        print(self.mailTitle.text)
+        self.mailBody.text = "ほげほげ"
+        self.changeMailBody()
+    }
+    
+    //----------------------------------
+    // 関数名：clickTime
+    // 説明：時間枠が押された
+    //----------------------------------
+    @IBAction func clickTime() {
+        print("clickTime")
+        self.changeMailBody()
+    }
+    
+    //----------------------------------
+    // 関数名：changeMailBody
+    // 説明：メール本文を更新
+    //----------------------------------
+    func changeMailBody() {
+        print("changeMailBody")
+    }
+*/
     
     override func viewDidLoad() {
         super.viewDidLoad()

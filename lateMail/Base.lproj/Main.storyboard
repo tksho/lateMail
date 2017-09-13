@@ -51,7 +51,7 @@
                                         </segments>
                                     </segmentedControl>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="emr-bK-CBP">
-                                        <rect key="frame" x="71" y="500" width="46" height="30"/>
+                                        <rect key="frame" x="147" y="304" width="46" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="メール"/>
                                         <connections>
@@ -94,24 +94,17 @@
                                             <segment title="渋滞"/>
                                             <segment title="ほか"/>
                                         </segments>
+                                        <connections>
+                                            <action selector="segmentedControlChanged:" destination="DMO-J2-8Ia" eventType="valueChanged" id="SuQ-Iq-v4M"/>
+                                        </connections>
                                     </segmentedControl>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Apz-fv-EC8">
-                                        <rect key="frame" x="267" y="500" width="46" height="30"/>
+                                        <rect key="frame" x="215" y="304" width="46" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="その他"/>
                                         <connections>
                                             <action selector="clickBtn_SendByOtherWithSender:" destination="DMO-J2-8Ia" eventType="touchUpInside" id="ltp-U3-Hso"/>
                                         </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T2E-P0-ulv">
-                                        <rect key="frame" x="204" y="500" width="37" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Viber"/>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w6Y-hc-MGw">
-                                        <rect key="frame" x="142" y="500" width="32" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="LINE"/>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
@@ -120,6 +113,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="mailBody" destination="1Dv-9S-sDb" id="h3J-ke-gCR"/>
+                        <outlet property="mailTitle" destination="Woe-Ao-xBk" id="UfD-8u-GBf"/>
+                        <outlet property="reason" destination="sfV-hj-zyE" id="umB-au-RyK"/>
                         <outlet property="shareBtn" destination="Apz-fv-EC8" id="Qsi-0Y-7he"/>
                     </connections>
                 </viewController>

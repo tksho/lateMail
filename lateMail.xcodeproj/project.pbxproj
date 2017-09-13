@@ -96,9 +96,9 @@
 				AB53B6601F4D507E00BDD317 /* ViewController.swift */,
 				AB53B6621F4D507E00BDD317 /* Main.storyboard */,
 				AB53B6701F4D65F900BDD317 /* Intro.storyboard */,
+				AB53B6671F4D507E00BDD317 /* LaunchScreen.storyboard */,
 				AB53B6651F4D507E00BDD317 /* Assets.xcassets */,
 				ABA8E7C41F56A2EE0044D613 /* menu.png */,
-				AB53B6671F4D507E00BDD317 /* LaunchScreen.storyboard */,
 				AB53B66A1F4D507E00BDD317 /* Info.plist */,
 			);
 			path = lateMail;
@@ -139,6 +139,7 @@
 				TargetAttributes = {
 					AB53B65A1F4D507D00BDD317 = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 39K484354G;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -356,7 +357,9 @@
 			baseConfigurationReference = E483E42133AB31746968FFBD /* Pods-lateMail.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 39K484354G;
 				INFOPLIST_FILE = lateMail/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.tksho.lateMail;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -369,7 +372,9 @@
 			baseConfigurationReference = A2F0F488B8DAD781A32E03C8 /* Pods-lateMail.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 39K484354G;
 				INFOPLIST_FILE = lateMail/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.tksho.lateMail;
 				PRODUCT_NAME = "$(TARGET_NAME)";
