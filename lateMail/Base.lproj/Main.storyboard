@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F2073" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="i7K-Sm-dpH">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="i7K-Sm-dpH">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -49,13 +49,16 @@
                                             <segment title="20分"/>
                                             <segment title="ほか"/>
                                         </segments>
+                                        <connections>
+                                            <action selector="segmentedControlChanged:" destination="DMO-J2-8Ia" eventType="valueChanged" id="itF-wT-ErT"/>
+                                        </connections>
                                     </segmentedControl>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="emr-bK-CBP">
                                         <rect key="frame" x="147" y="304" width="46" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="メール"/>
                                         <connections>
-                                            <action selector="clickBtn_SendByMail" destination="DMO-J2-8Ia" eventType="touchUpInside" id="vaC-oi-szd"/>
+                                            <action selector="clickSendMailBtn" destination="DMO-J2-8Ia" eventType="touchUpInside" id="VZG-am-dHr"/>
                                         </connections>
                                     </button>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="○○、遅刻" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Woe-Ao-xBk">
@@ -79,7 +82,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="お疲れ様です。○○です。すみませんが電車遅延により○○分程遅れそうです。よろしくお願いします。" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="1Dv-9S-sDb">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="お疲れ様です。\n改行&lt;名前&gt;&lt;/名前&gt;です。改行改行すみませんが&lt;理由&gt;電車遅延&lt;/理由&gt;により&lt;遅延時間&gt;&lt;/遅延時間&gt;ほど遅れそうです。改行よろしく。" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="1Dv-9S-sDb">
                                         <rect key="frame" x="62" y="333" width="251" height="140"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -103,7 +106,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="その他"/>
                                         <connections>
-                                            <action selector="clickBtn_SendByOtherWithSender:" destination="DMO-J2-8Ia" eventType="touchUpInside" id="ltp-U3-Hso"/>
+                                            <action selector="clickSendOtherBtnWithSender:" destination="DMO-J2-8Ia" eventType="touchUpInside" id="E4b-GL-n9T"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -116,7 +119,7 @@
                         <outlet property="mailBody" destination="1Dv-9S-sDb" id="h3J-ke-gCR"/>
                         <outlet property="mailTitle" destination="Woe-Ao-xBk" id="UfD-8u-GBf"/>
                         <outlet property="reason" destination="sfV-hj-zyE" id="umB-au-RyK"/>
-                        <outlet property="shareBtn" destination="Apz-fv-EC8" id="Qsi-0Y-7he"/>
+                        <outlet property="time" destination="ysw-Oz-4Ie" id="mLT-Zb-xTh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rST-xg-YL4" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -135,17 +138,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Wzs-zG-pof">
-                                <rect key="frame" x="128" y="165" width="118" height="31"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BiB-T7-dA9">
+                                <rect key="frame" x="0.0" y="0.0" width="258" height="522"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </slider>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g8k-0V-51m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1450" y="1"/>
+            <point key="canvasLocation" x="1448.8" y="0.44977511244377816"/>
         </scene>
         <!--Slide View Controller-->
         <scene sceneID="PbB-Jn-lm8">

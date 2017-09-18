@@ -13,88 +13,83 @@ import MessageUI
 
 class ViewController: UIViewController, MFMailComposeViewControllerDelegate{
 
-
-    @IBOutlet var shareBtn:UIButton!
     @IBOutlet var mailTitle:UITextView!
     @IBOutlet var mailBody:UITextView!
     @IBOutlet var reason:UISegmentedControl!
+    @IBOutlet var time:UISegmentedControl!
+
+    //----------------------------------
+    // 関数名：segmentedControlChanged
+    // 説明：理由or時間が指定された
+    //----------------------------------
     @IBAction func segmentedControlChanged(_ sender: UISegmentedControl) {
         print("segmentedControlChanged")
-        let selectedIndex = reason.selectedSegmentIndex
-        switch sender.selectedSegmentIndex {
-        case 0:
-            print("0")
-            print(reason.titleForSegment(at: selectedIndex))
-        case 1:
-            print("1")
-            print(reason.titleForSegment(at: selectedIndex))
-        case 2:
-            print("2")
-            print(reason.titleForSegment(at: selectedIndex))
-        default:
-            break
-        }
-    }
-/*
-    @IBOutlet var reasonControl:UISegmentedControl!
-    @IBOutlet var reason:UISegmentedControlSegment!
-    @IBOutlet var timeControl:UISegmentedControl!
-    @IBOutlet var time:UISegmentedControlSegment!
 
-    //----------------------------------
-    // 関数名：clickReason
-    // 説明：理由枠が押された
-    //----------------------------------
-    @IBAction func clickReason() {
-        print("clickReason")
-        print(self.reasonControl.title)
-        print(self.time)
-        print(self.mailBody.text)
-        print(self.mailTitle.text)
-        self.mailBody.text = "ほげほげ"
-        self.changeMailBody()
+        var selectedReason: String = ""
+        var selectedTime: String = ""
+        
+        // 選択されている理由と時間を取得
+        let resonSelectedIndex  = reason.selectedSegmentIndex
+        let timeSelectedIndex   = time.selectedSegmentIndex
+        selectedReason  = reason.titleForSegment(at: resonSelectedIndex)!
+        selectedTime    = time.titleForSegment(at: timeSelectedIndex)!
+
+        // 本文を置換
+        self.mailBody.text = self.changeMailBody(inReason:selectedReason, inTime:selectedTime)
     }
-    
-    //----------------------------------
-    // 関数名：clickTime
-    // 説明：時間枠が押された
-    //----------------------------------
-    @IBAction func clickTime() {
-        print("clickTime")
-        self.changeMailBody()
-    }
-    
+ 
     //----------------------------------
     // 関数名：changeMailBody
-    // 説明：メール本文を更新
+    // 説明：現在選択されている理由と時間でメール本文を書き換え
     //----------------------------------
-    func changeMailBody() {
-        print("changeMailBody")
-    }
-*/
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        //NavigationBarが半透明かどうか
-        navigationController?.navigationBar.isTranslucent = false
-        //NavigationBarの色を変更します
-        navigationController?.navigationBar.barTintColor = UIColor(red: 129/255, green: 212/255, blue: 78/255, alpha: 1)
-        //NavigationBarに乗っている部品の色を変更します
-        navigationController?.navigationBar.tintColor = UIColor.white
-        //バーの左側にボタンを配置します(ライブラリ特有)
-        addLeftBarButtonWithImage(UIImage(named: "menu.png")!)
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+    func changeMailBody(inReason: String, inTime: String) -> String {
+        // 本文取得
+        let body: NSMutableString = NSMutableString(string: self.mailBody.text)
+        
+        // 「<理由></理由>」で囲われている文字を置換
+        let reasonLeftDelimiterIndex = body.range(of: "<理由>")
+        let reasonRightDelimiterIndex = body.range(of: "</理由>")
+        let lengthOfNowReason = reasonRightDelimiterIndex.location -
+                                (reasonLeftDelimiterIndex.location + reasonLeftDelimiterIndex.length)
+        var delRange = NSMakeRange(reasonLeftDelimiterIndex.location+reasonLeftDelimiterIndex.length, lengthOfNowReason)
+        body.deleteCharacters(in: delRange)
+        body.insert(inReason, at: reasonLeftDelimiterIndex.location+reasonLeftDelimiterIndex.length)
 
+        // 「<遅延時間></遅延時間>」で囲われている文字を置換
+        let timeLeftDelimiterIndex = body.range(of: "<遅延時間>")
+        let timeRightDelimiterIndex = body.range(of: "</遅延時間>")
+        let lengthOfNowTime = timeRightDelimiterIndex.location -
+            (timeLeftDelimiterIndex.location + timeLeftDelimiterIndex.length)
+        delRange = NSMakeRange(timeLeftDelimiterIndex.location+timeLeftDelimiterIndex.length, lengthOfNowTime)
+        body.deleteCharacters(in: delRange)
+        body.insert(inTime, at: timeLeftDelimiterIndex.location+timeLeftDelimiterIndex.length)
+
+        return String(body)
+    }
+    
     //----------------------------------
-    // 関数名：clickBtn_SendByMail
+    // 関数名：mailComposeController
+    // 説明：メールを送信しない場合のクローズ処理
+    //----------------------------------
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        switch result {
+        case .cancelled:
+            print("キャンセル")
+        case .saved:
+            print("下書き保存")
+        case .sent:
+            print("送信成功")
+        default:
+            print("送信失敗")
+        }
+        dismiss(animated: true, completion: nil)
+    }
+    
+    //----------------------------------
+    // 関数名：clickSendMailBtn
     // 説明：[メール]ボタンが押された
     //----------------------------------
-    @IBAction func clickBtn_SendByMail() {
+    @IBAction func clickSendMailBtn() {
         print("mail")
         //メールを送信できるかチェック
         if MFMailComposeViewController.canSendMail()==false {
@@ -116,31 +111,12 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate{
         
         self.present(mailViewController, animated: true, completion: nil)
     }
-
     
     //----------------------------------
-    // 関数名：mailComposeController
-    // 説明：メールを送信しない場合のクローズ処理
-    //----------------------------------
-    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
-        switch result {
-        case .cancelled:
-            print("キャンセル")
-        case .saved:
-            print("下書き保存")
-        case .sent:
-            print("送信成功")
-        default:
-            print("送信失敗")
-        }
-        dismiss(animated: true, completion: nil)
-    }
-    
-    //----------------------------------
-    // 関数名：clickBtn_SendByOther
+    // 関数名：clickSendOtherBtn
     // 説明：[その他]ボタンが押された
     //----------------------------------
-    @IBAction func clickBtn_SendByOther(sender: AnyObject) {
+    @IBAction func clickSendOtherBtn(sender: AnyObject) {
         let text = "sample text"
         let items = [text]
         
@@ -149,6 +125,23 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate{
         
         // UIAcitivityViewControllerを表示
         self.present(activityVc, animated: true, completion: nil)
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // NavigationBarが半透明かどうか
+        navigationController?.navigationBar.isTranslucent = false
+        // NavigationBarの色を変更します
+        navigationController?.navigationBar.barTintColor = UIColor(red: 212/255, green: 212/255, blue: 212/255, alpha: 1)
+        // NavigationBarに乗っている部品の色を変更します
+        navigationController?.navigationBar.tintColor = UIColor.white
+        // バーの左側にボタンを配置します(ライブラリ特有)
+        addLeftBarButtonWithImage(UIImage(named: "menu.png")!)
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
 
 }
