@@ -28,16 +28,15 @@ class MailAddressEditViewController: UIViewController {
         self.mail.loadFromUd()
         
         // 設定値読み込み
-        let ud = UserDefaults.standard
-        self.to1.text = ud.string(forKey: "to1")
-        self.to2.text = ud.string(forKey: "to2")
-        self.to3.text = ud.string(forKey: "to3")
-        self.cc1.text = ud.string(forKey: "cc1")
-        self.cc2.text = ud.string(forKey: "cc2")
-        self.cc3.text = ud.string(forKey: "cc3")
-        self.bcc1.text = ud.string(forKey: "bcc1")
-        self.bcc2.text = ud.string(forKey: "bcc2")
-        self.bcc3.text = ud.string(forKey: "bcc3")
+        self.to1.text = self.mail.to1! as String
+        self.to2.text = self.mail.to2! as String
+        self.to3.text = self.mail.to3! as String
+        self.cc1.text = self.mail.cc1! as String
+        self.cc2.text = self.mail.cc2! as String
+        self.cc3.text = self.mail.cc3! as String
+        self.bcc1.text = self.mail.bcc1! as String
+        self.bcc2.text = self.mail.bcc2! as String
+        self.bcc3.text = self.mail.bcc3! as String
     }
 
     override func didReceiveMemoryWarning() {
@@ -50,16 +49,16 @@ class MailAddressEditViewController: UIViewController {
 
     @IBAction func save() {
         // 保存
-        let ud = UserDefaults.standard
-        ud.set(self.to1.text, forKey: "to1")
-        ud.set(self.to2.text, forKey: "to2")
-        ud.set(self.to3.text, forKey: "to3")
-        ud.set(self.cc1.text, forKey: "cc1")
-        ud.set(self.cc2.text, forKey: "cc2")
-        ud.set(self.cc3.text, forKey: "cc3")
-        ud.set(self.bcc1.text, forKey: "bcc1")
-        ud.set(self.bcc2.text, forKey: "bcc2")
-        ud.set(self.bcc3.text, forKey: "bcc3")
+        self.mail.to1 = self.to1.text as! NSMutableString
+        self.mail.to2 = self.to2.text as! NSMutableString
+        self.mail.to3 = self.to3.text as! NSMutableString
+        self.mail.cc1 = self.cc1.text as! NSMutableString
+        self.mail.cc2 = self.cc2.text as! NSMutableString
+        self.mail.cc3 = self.cc3.text as! NSMutableString
+        self.mail.bcc1 = self.bcc1.text as! NSMutableString
+        self.mail.bcc2 = self.bcc2.text as! NSMutableString
+        self.mail.bcc3 = self.bcc3.text as! NSMutableString
+        self.mail.saveToUd()
         
         self.dismiss(animated: true, completion: nil)
     }
