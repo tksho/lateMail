@@ -60,24 +60,30 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate{
         // 本文取得
         let body: NSMutableString = NSMutableString(string: self.mailBody.text)
         
-        // 「<理由></理由>」で囲われている文字を置換
+        // 「<理由></理由>」で囲われている文字を置換。
         let reasonLeftDelimiterIndex = body.range(of: "<理由>")
         let reasonRightDelimiterIndex = body.range(of: "</理由>")
         let lengthOfNowReason = reasonRightDelimiterIndex.location -
                                 (reasonLeftDelimiterIndex.location + reasonLeftDelimiterIndex.length)
         var delRange = NSMakeRange(reasonLeftDelimiterIndex.location+reasonLeftDelimiterIndex.length, lengthOfNowReason)
-        body.deleteCharacters(in: delRange)
-        body.insert(inReason, at: reasonLeftDelimiterIndex.location+reasonLeftDelimiterIndex.length)
-
+        if reasonLeftDelimiterIndex.length != 0 && reasonRightDelimiterIndex.length != 0 {
+            // 「<理由>」「</理由>」両方あれば置換実行
+            body.deleteCharacters(in: delRange)
+            body.insert(inReason, at: reasonLeftDelimiterIndex.location+reasonLeftDelimiterIndex.length)
+        }
+        
         // 「<遅延時間></遅延時間>」で囲われている文字を置換
         let timeLeftDelimiterIndex = body.range(of: "<遅延時間>")
         let timeRightDelimiterIndex = body.range(of: "</遅延時間>")
         let lengthOfNowTime = timeRightDelimiterIndex.location -
             (timeLeftDelimiterIndex.location + timeLeftDelimiterIndex.length)
         delRange = NSMakeRange(timeLeftDelimiterIndex.location+timeLeftDelimiterIndex.length, lengthOfNowTime)
-        body.deleteCharacters(in: delRange)
-        body.insert(inTime, at: timeLeftDelimiterIndex.location+timeLeftDelimiterIndex.length)
-
+        if timeLeftDelimiterIndex.length != 0 && timeRightDelimiterIndex.length != 0 {
+            // 「<遅延時間>」「</遅延時間>」両方あれば置換実行
+            body.deleteCharacters(in: delRange)
+            body.insert(inTime, at: timeLeftDelimiterIndex.location+timeLeftDelimiterIndex.length)
+        }
+        
         return String(body)
     }
     
@@ -163,6 +169,8 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate{
         let ud = UserDefaults.standard
         self.ud_title = ud.string(forKey: "title")! // 件名
         self.mailTitle.text = self.ud_title
+        self.ud_body = ud.string(forKey: "body")! // 本文
+        self.mailBody.text = self.ud_body
         
         var selectedReason: String = ""
         var selectedTime: String = ""
@@ -173,39 +181,50 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate{
         selectedReason  = reason.titleForSegment(at: resonSelectedIndex)!
         selectedTime    = time.titleForSegment(at: timeSelectedIndex)!
         
+        // 本文を置換
+        self.mailBody.text = self.changeMailBody(inReason:selectedReason, inTime:selectedTime)
+        
         // 本文取得
         let body: NSMutableString = NSMutableString(string: self.mailBody.text)
         
+        var delWord: NSRange!
+        var delRange: NSRange!
         // 「名前」タグを削除
-        var delWord = body.range(of: "<名前>")
-        var delRange = NSMakeRange(delWord.location, delWord.length)
-        body.deleteCharacters(in: delRange)
-
+        delWord = body.range(of: "<名前>")
+        if delWord.length != 0 {
+            delRange = NSMakeRange(delWord.location, delWord.length)
+            body.deleteCharacters(in: delRange)
+        }
         // 「/名前」タグを削除
         delWord = body.range(of: "</名前>")
-        delRange = NSMakeRange(delWord.location, delWord.length)
-        body.deleteCharacters(in: delRange)
-
+        if delWord.length != 0 {
+            delRange = NSMakeRange(delWord.location, delWord.length)
+            body.deleteCharacters(in: delRange)
+        }
         // 「理由」タグを削除
         delWord = body.range(of: "<理由>")
-        delRange = NSMakeRange(delWord.location, delWord.length)
-        body.deleteCharacters(in: delRange)
-
+        if delWord.length != 0 {
+            delRange = NSMakeRange(delWord.location, delWord.length)
+            body.deleteCharacters(in: delRange)
+        }
         // 「/理由」タグを削除
         delWord = body.range(of: "</理由>")
-        delRange = NSMakeRange(delWord.location, delWord.length)
-        body.deleteCharacters(in: delRange)
-
+        if delWord.length != 0 {
+            delRange = NSMakeRange(delWord.location, delWord.length)
+            body.deleteCharacters(in: delRange)
+        }
         // 「遅延時間」タグを削除
         delWord = body.range(of: "<遅延時間>")
-        delRange = NSMakeRange(delWord.location, delWord.length)
-        body.deleteCharacters(in: delRange)
-
+        if delWord.length != 0 {
+            delRange = NSMakeRange(delWord.location, delWord.length)
+            body.deleteCharacters(in: delRange)
+        }
         // 「/遅延時間」タグを削除
         delWord = body.range(of: "</遅延時間>")
-        delRange = NSMakeRange(delWord.location, delWord.length)
-        body.deleteCharacters(in: delRange)
-
+        if delWord.length != 0 {
+            delRange = NSMakeRange(delWord.location, delWord.length)
+            body.deleteCharacters(in: delRange)
+        }
         self.mailBodyLabel.text = String(body)
     }
     
