@@ -54,7 +54,7 @@
                                         </connections>
                                     </segmentedControl>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="emr-bK-CBP">
-                                        <rect key="frame" x="147" y="304" width="46" height="30"/>
+                                        <rect key="frame" x="62" y="497" width="46" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="メール"/>
                                         <connections>
@@ -102,11 +102,27 @@
                                         </connections>
                                     </segmentedControl>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Apz-fv-EC8">
-                                        <rect key="frame" x="215" y="304" width="46" height="30"/>
+                                        <rect key="frame" x="147" y="497" width="46" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="その他"/>
                                         <connections>
                                             <action selector="clickSendOtherBtnWithSender:" destination="DMO-J2-8Ia" eventType="touchUpInside" id="E4b-GL-n9T"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ia9-eX-ILi">
+                                        <rect key="frame" x="282" y="218" width="31" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="編集"/>
+                                        <connections>
+                                            <action selector="clickTitleEditBtn" destination="DMO-J2-8Ia" eventType="touchUpInside" id="11C-jn-gh2"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GmL-iz-fSz">
+                                        <rect key="frame" x="282" y="299" width="31" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="編集"/>
+                                        <connections>
+                                            <action selector="clickBodyEditBtn" destination="DMO-J2-8Ia" eventType="touchUpInside" id="z65-qd-M9W"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -120,11 +136,13 @@
                         <outlet property="mailTitle" destination="Woe-Ao-xBk" id="UfD-8u-GBf"/>
                         <outlet property="reason" destination="sfV-hj-zyE" id="umB-au-RyK"/>
                         <outlet property="time" destination="ysw-Oz-4Ie" id="mLT-Zb-xTh"/>
+                        <segue destination="9UV-ei-x0h" kind="show" identifier="toTitleEdit" id="B7z-of-t3Q"/>
+                        <segue destination="5kJ-lf-XOx" kind="show" identifier="toBodyEdit" id="ziw-LA-5xn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rST-xg-YL4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3096.8000000000002" y="1.3493253373313345"/>
+            <point key="canvasLocation" x="3354" y="291"/>
         </scene>
         <!--Left View Controller-->
         <scene sceneID="Mup-Ky-hdf">
@@ -206,7 +224,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vqC-e3-g5E" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1448.8" y="-1096.1019490254873"/>
+            <point key="canvasLocation" x="4159" y="-1110"/>
         </scene>
         <!--Title Edit View Controller-->
         <scene sceneID="PGh-PG-TgJ">
@@ -247,7 +265,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Er7-ga-Zoe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2288.8000000000002" y="-933.28335832083962"/>
+            <point key="canvasLocation" x="3145" y="-1155"/>
         </scene>
         <!--Profile Edit View Controller-->
         <scene sceneID="kZL-fN-cmp">
@@ -302,7 +320,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4d3-9b-IHh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3224.8000000000002" y="-1024.1379310344828"/>
+            <point key="canvasLocation" x="1676" y="-1110"/>
         </scene>
         <!--Slide View Controller-->
         <scene sceneID="PbB-Jn-lm8">
@@ -481,7 +499,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qfw-bW-4R5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="357.60000000000002" y="-656.22188905547227"/>
+            <point key="canvasLocation" x="740" y="-960"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="ziw-LA-5xn"/>
+        <segue reference="B7z-of-t3Q"/>
+    </inferredMetricsTieBreakers>
 </document>

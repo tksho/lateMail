@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		79A487F21F74002400E6BA09 /* BodyEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A487F11F74002400E6BA09 /* BodyEditViewController.swift */; };
+		79A487F41F74004900E6BA09 /* MailAddressEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A487F31F74004900E6BA09 /* MailAddressEditViewController.swift */; };
+		79A487F61F74005500E6BA09 /* TitleEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A487F51F74005500E6BA09 /* TitleEditViewController.swift */; };
+		79A487FA1F74093D00E6BA09 /* ProfileEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A487F91F74093D00E6BA09 /* ProfileEditViewController.swift */; };
 		AB01F0341F679E5B00866E39 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB01F0331F679E5B00866E39 /* MessageUI.framework */; };
 		AB53B65F1F4D507E00BDD317 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB53B65E1F4D507E00BDD317 /* AppDelegate.swift */; };
 		AB53B6611F4D507E00BDD317 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB53B6601F4D507E00BDD317 /* ViewController.swift */; };
@@ -21,6 +25,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		79A487F11F74002400E6BA09 /* BodyEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BodyEditViewController.swift; sourceTree = "<group>"; };
+		79A487F31F74004900E6BA09 /* MailAddressEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MailAddressEditViewController.swift; sourceTree = "<group>"; };
+		79A487F51F74005500E6BA09 /* TitleEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleEditViewController.swift; sourceTree = "<group>"; };
+		79A487F91F74093D00E6BA09 /* ProfileEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileEditViewController.swift; sourceTree = "<group>"; };
 		A2F0F488B8DAD781A32E03C8 /* Pods-lateMail.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lateMail.release.xcconfig"; path = "Pods/Target Support Files/Pods-lateMail/Pods-lateMail.release.xcconfig"; sourceTree = "<group>"; };
 		AB01F0331F679E5B00866E39 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		AB53B65B1F4D507E00BDD317 /* lateMail.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = lateMail.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -91,8 +99,12 @@
 			isa = PBXGroup;
 			children = (
 				AB53B65E1F4D507E00BDD317 /* AppDelegate.swift */,
-				AB53B6851F56925D00BDD317 /* SlideViewController.swift */,
+				79A487F11F74002400E6BA09 /* BodyEditViewController.swift */,
 				ABA8E7C01F5696FD0044D613 /* LeftViewController.swift */,
+				79A487F31F74004900E6BA09 /* MailAddressEditViewController.swift */,
+				79A487F91F74093D00E6BA09 /* ProfileEditViewController.swift */,
+				AB53B6851F56925D00BDD317 /* SlideViewController.swift */,
+				79A487F51F74005500E6BA09 /* TitleEditViewController.swift */,
 				AB53B6601F4D507E00BDD317 /* ViewController.swift */,
 				AB53B6621F4D507E00BDD317 /* Main.storyboard */,
 				AB53B6701F4D65F900BDD317 /* Intro.storyboard */,
@@ -230,6 +242,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79A487FA1F74093D00E6BA09 /* ProfileEditViewController.swift in Sources */,
+				79A487F41F74004900E6BA09 /* MailAddressEditViewController.swift in Sources */,
+				79A487F21F74002400E6BA09 /* BodyEditViewController.swift in Sources */,
+				79A487F61F74005500E6BA09 /* TitleEditViewController.swift in Sources */,
 				AB53B6611F4D507E00BDD317 /* ViewController.swift in Sources */,
 				ABA8E7C11F5696FD0044D613 /* LeftViewController.swift in Sources */,
 				AB53B65F1F4D507E00BDD317 /* AppDelegate.swift in Sources */,

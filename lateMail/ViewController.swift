@@ -127,6 +127,23 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate{
         self.present(activityVc, animated: true, completion: nil)
     }
 
+    //----------------------------------
+    // 関数名：clickTitleEditBtn
+    // 説明：件名の[編集]ボタンが押された
+    //----------------------------------
+    @IBAction func clickTitleEditBtn() {
+        self.performSegue(withIdentifier: "toTitleEdit", sender: nil)
+    }
+
+    //----------------------------------
+    // 関数名：clickBodyEditBtn
+    // 説明：本文の[編集]ボタンが押された
+    //----------------------------------
+    @IBAction func clickBodyEditBtn() {
+        self.performSegue(withIdentifier: "toBodyEdit", sender: nil)
+    }
+    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // NavigationBarが半透明かどうか
@@ -144,5 +161,7 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate{
         // Dispose of any resources that can be recreated.
     }
 
+    
+    
 }
 
