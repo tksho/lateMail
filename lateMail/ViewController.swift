@@ -13,24 +13,11 @@ import MessageUI
 
 class ViewController: UIViewController, MFMailComposeViewControllerDelegate{
 
-    @IBOutlet var mailTitle:UITextView!
-    @IBOutlet var mailBody:UITextView!
     @IBOutlet var reason:UISegmentedControl!
     @IBOutlet var time:UISegmentedControl!
     @IBOutlet var mailBodyLabel:UILabel!
     @IBOutlet var mailTitleLabel:UILabel!
-    var ud_to1: String = ""
-    var ud_to2: String = ""
-    var ud_to3: String = ""
-    var ud_cc1: String = ""
-    var ud_cc2: String = ""
-    var ud_cc3: String = ""
-    var ud_bcc1: String = ""
-    var ud_bcc2: String = ""
-    var ud_bcc3: String = ""
-    var ud_fromName: String = ""
-    var ud_title: String = ""
-    var ud_body: String = ""
+    var mail: Mail = Mail(title:"", body: "", fromName: "", to1: "", to2: "", to3: "", cc1: "", cc2: "", cc3: "", bcc1: "", bcc2: "", bcc3: "" )
     
     //----------------------------------
     // 関数名：segmentedControlChanged
@@ -47,64 +34,19 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate{
         selectedReason  = reason.titleForSegment(at: resonSelectedIndex)!
         selectedTime    = time.titleForSegment(at: timeSelectedIndex)!
 
+        // 件名を置換
+        self.mail.title = self.mail.changeTitle(inReason: selectedReason, inTime: selectedTime)
+
         // 本文を置換
-        self.mailBody.text = self.changeMailBody(inReason:selectedReason, inTime:selectedTime)
+        self.mail.body = self.mail.changeBody(inReason: selectedReason, inTime: selectedTime)
 
         // 表示用のメール本文を作り表示
-        self.dispMailBodyLabel()
+        self.mailBodyLabel.text = self.mail.dispBody()
         
         // 表示用のメール件名を作り表示
-        self.dispMailTitleLabel()
+        self.mailTitleLabel.text = self.mail.dispTitle()
     }
  
-    //----------------------------------
-    // 関数名：changeMailBody
-    // 説明：現在選択されている理由と時間でメール本文を書き換え
-    //----------------------------------
-    func changeMailBody(inReason: String, inTime: String) -> String {
-        // 本文取得
-        let body: NSMutableString = NSMutableString(string: self.mailBody.text)
-        
-        // 「<理由></理由>」で囲われている文字を置換。
-        let reasonLeftDelimiterIndex = body.range(of: "<理由>")
-        let reasonRightDelimiterIndex = body.range(of: "</理由>")
-        let lengthOfNowReason = reasonRightDelimiterIndex.location -
-                                (reasonLeftDelimiterIndex.location + reasonLeftDelimiterIndex.length)
-        var delRange = NSMakeRange(reasonLeftDelimiterIndex.location+reasonLeftDelimiterIndex.length, lengthOfNowReason)
-        if reasonLeftDelimiterIndex.length != 0 && reasonRightDelimiterIndex.length != 0 {
-            // 「<理由>」「</理由>」両方あれば置換実行
-            body.deleteCharacters(in: delRange)
-            body.insert(inReason, at: reasonLeftDelimiterIndex.location+reasonLeftDelimiterIndex.length)
-        }
-        
-        // 「<遅延時間></遅延時間>」で囲われている文字を置換
-        let timeLeftDelimiterIndex = body.range(of: "<遅延時間>")
-        let timeRightDelimiterIndex = body.range(of: "</遅延時間>")
-        let lengthOfNowTime = timeRightDelimiterIndex.location -
-            (timeLeftDelimiterIndex.location + timeLeftDelimiterIndex.length)
-        delRange = NSMakeRange(timeLeftDelimiterIndex.location+timeLeftDelimiterIndex.length, lengthOfNowTime)
-        if timeLeftDelimiterIndex.length != 0 && timeRightDelimiterIndex.length != 0 {
-            // 「<遅延時間>」「</遅延時間>」両方あれば置換実行
-            body.deleteCharacters(in: delRange)
-            body.insert(inTime, at: timeLeftDelimiterIndex.location+timeLeftDelimiterIndex.length)
-        }
-        
-        // 「<名前></名前>」で囲われている文字を置換
-        let ud = UserDefaults.standard
-        let fromName = ud.string(forKey: "fromName")
-        let fromNameLeftDelimiterIndex = body.range(of: "<名前>")
-        let fromNameRightDelimiterIndex = body.range(of: "</名前>")
-        let lengthOfNowFromName = fromNameRightDelimiterIndex.location -
-            (fromNameLeftDelimiterIndex.location + fromNameLeftDelimiterIndex.length)
-        delRange = NSMakeRange(fromNameLeftDelimiterIndex.location+fromNameLeftDelimiterIndex.length, lengthOfNowFromName)
-        if fromNameLeftDelimiterIndex.length != 0 && fromNameRightDelimiterIndex.length != 0 && fromName != nil {
-            // 「<名前>」「</名前>」両方あれば置換実行
-            body.deleteCharacters(in: delRange)
-            body.insert(fromName!, at: fromNameLeftDelimiterIndex.location+fromNameLeftDelimiterIndex.length)
-        }
-        
-        return String(body)
-    }
     
     //----------------------------------
     // 関数名：mailComposeController
@@ -136,7 +78,7 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate{
             return
         }
         
-        var mailViewController = MFMailComposeViewController()
+        let mailViewController = MFMailComposeViewController()
         let toRecipients = ["to@1gmail.com","tksho112@gmail.com"] //Toのアドレス指定
         let CcRecipients = ["cc@1gmail.com","Cc2@1gmail.com"] //Ccのアドレス指定
         let BccRecipients = ["Bcc@1gmail.com","Bcc2@1gmail.com"] //Bccのアドレス指定
@@ -184,12 +126,8 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate{
 
     override func viewWillAppear(_ animated: Bool) {
         
-        // 設定読み込み
-        let ud = UserDefaults.standard
-        self.ud_title = ud.string(forKey: "title")! // 件名
-        self.mailTitle.text = self.ud_title
-        self.ud_body = ud.string(forKey: "body")! // 本文
-        self.mailBody.text = self.ud_body
+        // 保存データ読み込み
+        self.mail.loadFromUd()
         
         var selectedReason: String = ""
         var selectedTime: String = ""
@@ -201,148 +139,20 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate{
         selectedTime    = time.titleForSegment(at: timeSelectedIndex)!
         
         // 本文を置換
-        self.mailBody.text = self.changeMailBody(inReason:selectedReason, inTime:selectedTime)
+        self.mail.body = self.mail.changeBody(inReason: selectedReason, inTime: selectedTime)
 
         // 件名を置換
-        self.changeMailTitle()
+        self.mail.title = self.mail.changeTitle(inReason: selectedReason, inTime: selectedTime)
         
         // 表示用のメール本文を作り表示
-        self.dispMailBodyLabel()
-
+        self.mailBodyLabel.text = self.mail.dispBody()
+        
         // 表示用のメール件名を作り表示
-        self.dispMailTitleLabel()
-
-        // textviewを非表示
-        self.mailBody.isHidden = true
-        self.mailTitle.isHidden = true
-    }
-
-
-    //----------------------------------
-    // 関数名：changeMailTitle
-    // 説明：件名のタグに設定値を入れる
-    //----------------------------------
-    func changeMailTitle() {
-
-        let title: NSMutableString = NSMutableString(string: self.mailTitle.text)
-
-        // 「<名前></名前>」で囲われている文字を置換
-        let ud = UserDefaults.standard
-        let fromName = ud.string(forKey: "fromName")
-        let fromNameLeftDelimiterIndex = title.range(of: "<名前>")
-        let fromNameRightDelimiterIndex = title.range(of: "</名前>")
-        let lengthOfNowFromName = fromNameRightDelimiterIndex.location -
-            (fromNameLeftDelimiterIndex.location + fromNameLeftDelimiterIndex.length)
-        var delRange = NSMakeRange(fromNameLeftDelimiterIndex.location+fromNameLeftDelimiterIndex.length, lengthOfNowFromName)
-        if fromNameLeftDelimiterIndex.length != 0 && fromNameRightDelimiterIndex.length != 0 && fromName != nil {
-            // 「<名前>」「</名前>」両方あれば置換実行
-            title.deleteCharacters(in: delRange)
-            title.insert(fromName!, at: fromNameLeftDelimiterIndex.location+fromNameLeftDelimiterIndex.length)
-        }
-
-        self.mailTitle.text = String(title)
+        self.mailTitleLabel.text = self.mail.dispTitle()
         
     }
 
-    //----------------------------------
-    // 関数名：dispMailTitleLabel
-    // 説明：表示用のメール件名を作り表示
-    //----------------------------------
-    func dispMailTitleLabel(){
-        // 件名取得
-        let title: NSMutableString = NSMutableString(string: self.mailTitle.text)
-        
-        var delWord: NSRange!
-        var delRange: NSRange!
-        // 「名前」タグを削除
-        delWord = title.range(of: "<名前>")
-        if delWord.length != 0 {
-            delRange = NSMakeRange(delWord.location, delWord.length)
-            title.deleteCharacters(in: delRange)
-        }
-        // 「/名前」タグを削除
-        delWord = title.range(of: "</名前>")
-        if delWord.length != 0 {
-            delRange = NSMakeRange(delWord.location, delWord.length)
-            title.deleteCharacters(in: delRange)
-        }
-        // 「理由」タグを削除
-        delWord = title.range(of: "<理由>")
-        if delWord.length != 0 {
-            delRange = NSMakeRange(delWord.location, delWord.length)
-            title.deleteCharacters(in: delRange)
-        }
-        // 「/理由」タグを削除
-        delWord = title.range(of: "</理由>")
-        if delWord.length != 0 {
-            delRange = NSMakeRange(delWord.location, delWord.length)
-            title.deleteCharacters(in: delRange)
-        }
-        // 「遅延時間」タグを削除
-        delWord = title.range(of: "<遅延時間>")
-        if delWord.length != 0 {
-            delRange = NSMakeRange(delWord.location, delWord.length)
-            title.deleteCharacters(in: delRange)
-        }
-        // 「/遅延時間」タグを削除
-        delWord = title.range(of: "</遅延時間>")
-        if delWord.length != 0 {
-            delRange = NSMakeRange(delWord.location, delWord.length)
-            title.deleteCharacters(in: delRange)
-        }
-        self.mailTitleLabel.text = String(title)
-        
-    }
-        
-    //----------------------------------
-    // 関数名：dispMailBodyLabel
-    // 説明：表示用のメール本文を作り表示
-    //----------------------------------
-    func dispMailBodyLabel(){
-        // 本文取得
-        let body: NSMutableString = NSMutableString(string: self.mailBody.text)
-        
-        var delWord: NSRange!
-        var delRange: NSRange!
-        // 「名前」タグを削除
-        delWord = body.range(of: "<名前>")
-        if delWord.length != 0 {
-            delRange = NSMakeRange(delWord.location, delWord.length)
-            body.deleteCharacters(in: delRange)
-        }
-        // 「/名前」タグを削除
-        delWord = body.range(of: "</名前>")
-        if delWord.length != 0 {
-            delRange = NSMakeRange(delWord.location, delWord.length)
-            body.deleteCharacters(in: delRange)
-        }
-        // 「理由」タグを削除
-        delWord = body.range(of: "<理由>")
-        if delWord.length != 0 {
-            delRange = NSMakeRange(delWord.location, delWord.length)
-            body.deleteCharacters(in: delRange)
-        }
-        // 「/理由」タグを削除
-        delWord = body.range(of: "</理由>")
-        if delWord.length != 0 {
-            delRange = NSMakeRange(delWord.location, delWord.length)
-            body.deleteCharacters(in: delRange)
-        }
-        // 「遅延時間」タグを削除
-        delWord = body.range(of: "<遅延時間>")
-        if delWord.length != 0 {
-            delRange = NSMakeRange(delWord.location, delWord.length)
-            body.deleteCharacters(in: delRange)
-        }
-        // 「/遅延時間」タグを削除
-        delWord = body.range(of: "</遅延時間>")
-        if delWord.length != 0 {
-            delRange = NSMakeRange(delWord.location, delWord.length)
-            body.deleteCharacters(in: delRange)
-        }
-        self.mailBodyLabel.text = String(body)
 
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

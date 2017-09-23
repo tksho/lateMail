@@ -11,13 +11,14 @@ import UIKit
 class ProfileEditViewController: UIViewController {
 
     @IBOutlet var fromNameTextField:UITextField!
-    
+    var mail: Mail = Mail(title:"", body: "", fromName: "", to1: "", to2: "", to3: "", cc1: "", cc2: "", cc3: "", bcc1: "", bcc2: "", bcc3: "" )
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // 設定値読み込み
-        let ud = UserDefaults.standard
-        self.fromNameTextField.text = ud.string(forKey: "fromName")
+        // 保存データ読み込み
+        self.mail.loadFromUd()
+        self.fromNameTextField.text = self.mail.fromName
     }
 
     override func didReceiveMemoryWarning() {
@@ -25,14 +26,22 @@ class ProfileEditViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func cancel() {
+    //----------------------------------
+    // 関数名：clickCancelBtn
+    // 説明：キャンセルボタンが押された
+    //----------------------------------
+    @IBAction func clickCancelBtn() {
         self.dismiss(animated: true, completion: nil)
     }
 
-    @IBAction func save() {
+    //----------------------------------
+    // 関数名：clickSaveBtn
+    // 説明：保存ボタンが押された
+    //----------------------------------
+    @IBAction func clickSaveBtn() {
         // 保存
-        let ud = UserDefaults.standard
-        ud.set(self.fromNameTextField.text, forKey: "fromName")
+        self.mail.fromName = self.fromNameTextField.text
+        self.mail.saveToUd()
         
         print("保存しました")
         
