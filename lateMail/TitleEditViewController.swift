@@ -10,10 +10,14 @@ import UIKit
 
 class TitleEditViewController: UIViewController {
 
+    @IBOutlet var titleTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        // 設定値読み込み
+        let ud = UserDefaults.standard
+        self.titleTextField.text = ud.string(forKey: "title")
     }
 
     override func didReceiveMemoryWarning() {
@@ -25,14 +29,15 @@ class TitleEditViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
 
-    /*
-    // MARK: - Navigation
+    @IBAction func save() {
+        // 保存
+        let ud = UserDefaults.standard
+        ud.set(self.titleTextField.text, forKey: "title")
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        print("保存しました")
+
+        self.dismiss(animated: true, completion: nil)
+        
     }
-    */
-
+    
 }

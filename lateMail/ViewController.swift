@@ -18,6 +18,18 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate{
     @IBOutlet var reason:UISegmentedControl!
     @IBOutlet var time:UISegmentedControl!
     @IBOutlet var mailBodyLabel:UILabel!
+    var ud_to1: String = ""
+    var ud_to2: String = ""
+    var ud_to3: String = ""
+    var ud_cc1: String = ""
+    var ud_cc2: String = ""
+    var ud_cc3: String = ""
+    var ud_bcc1: String = ""
+    var ud_bcc2: String = ""
+    var ud_bcc3: String = ""
+    var ud_name: String = ""
+    var ud_title: String = ""
+    var ud_body: String = ""
     
     //----------------------------------
     // 関数名：segmentedControlChanged
@@ -146,6 +158,12 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate{
     }
 
     override func viewWillAppear(_ animated: Bool) {
+        
+        // 設定読み込み
+        let ud = UserDefaults.standard
+        self.ud_title = ud.string(forKey: "title")! // 件名
+        self.mailTitle.text = self.ud_title
+        
         var selectedReason: String = ""
         var selectedTime: String = ""
         
