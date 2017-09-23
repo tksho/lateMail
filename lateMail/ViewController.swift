@@ -13,30 +13,106 @@ import MessageUI
 
 class ViewController: UIViewController, MFMailComposeViewControllerDelegate{
 
-    @IBOutlet var shareBtn:UIButton!
+    @IBOutlet var mailTitle:UITextView!
+    @IBOutlet var mailBody:UITextView!
+    @IBOutlet var reason:UISegmentedControl!
+    @IBOutlet var time:UISegmentedControl!
+    @IBOutlet var mailBodyLabel:UILabel!
+    var ud_to1: String = ""
+    var ud_to2: String = ""
+    var ud_to3: String = ""
+    var ud_cc1: String = ""
+    var ud_cc2: String = ""
+    var ud_cc3: String = ""
+    var ud_bcc1: String = ""
+    var ud_bcc2: String = ""
+    var ud_bcc3: String = ""
+    var ud_name: String = ""
+    var ud_title: String = ""
+    var ud_body: String = ""
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        //NavigationBarが半透明かどうか
-        navigationController?.navigationBar.isTranslucent = false
-        //NavigationBarの色を変更します
-        navigationController?.navigationBar.barTintColor = UIColor(red: 129/255, green: 212/255, blue: 78/255, alpha: 1)
-        //NavigationBarに乗っている部品の色を変更します
-        navigationController?.navigationBar.tintColor = UIColor.white
-        //バーの左側にボタンを配置します(ライブラリ特有)
-        addLeftBarButtonWithImage(UIImage(named: "menu.png")!)
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
     //----------------------------------
-    // 関数名：clickBtn_SendByMail
+    // 関数名：segmentedControlChanged
+    // 説明：理由or時間が指定された
+    //----------------------------------
+    @IBAction func segmentedControlChanged(_ sender: UISegmentedControl) {
+
+        print("segmentedControlChanged")
+
+        var selectedReason: String = ""
+        var selectedTime: String = ""
+        
+        // 選択されている理由と時間を取得
+        let resonSelectedIndex  = reason.selectedSegmentIndex
+        let timeSelectedIndex   = time.selectedSegmentIndex
+        selectedReason  = reason.titleForSegment(at: resonSelectedIndex)!
+        selectedTime    = time.titleForSegment(at: timeSelectedIndex)!
+
+        // 本文を置換
+        self.mailBody.text = self.changeMailBody(inReason:selectedReason, inTime:selectedTime)
+
+        // 表示用のメール本文を作り表示
+        self.dispMailBodyLabel()
+    }
+ 
+    //----------------------------------
+    // 関数名：changeMailBody
+    // 説明：現在選択されている理由と時間でメール本文を書き換え
+    //----------------------------------
+    func changeMailBody(inReason: String, inTime: String) -> String {
+        // 本文取得
+        let body: NSMutableString = NSMutableString(string: self.mailBody.text)
+        
+        // 「<理由></理由>」で囲われている文字を置換。
+        let reasonLeftDelimiterIndex = body.range(of: "<理由>")
+        let reasonRightDelimiterIndex = body.range(of: "</理由>")
+        let lengthOfNowReason = reasonRightDelimiterIndex.location -
+                                (reasonLeftDelimiterIndex.location + reasonLeftDelimiterIndex.length)
+        var delRange = NSMakeRange(reasonLeftDelimiterIndex.location+reasonLeftDelimiterIndex.length, lengthOfNowReason)
+        if reasonLeftDelimiterIndex.length != 0 && reasonRightDelimiterIndex.length != 0 {
+            // 「<理由>」「</理由>」両方あれば置換実行
+            body.deleteCharacters(in: delRange)
+            body.insert(inReason, at: reasonLeftDelimiterIndex.location+reasonLeftDelimiterIndex.length)
+        }
+        
+        // 「<遅延時間></遅延時間>」で囲われている文字を置換
+        let timeLeftDelimiterIndex = body.range(of: "<遅延時間>")
+        let timeRightDelimiterIndex = body.range(of: "</遅延時間>")
+        let lengthOfNowTime = timeRightDelimiterIndex.location -
+            (timeLeftDelimiterIndex.location + timeLeftDelimiterIndex.length)
+        delRange = NSMakeRange(timeLeftDelimiterIndex.location+timeLeftDelimiterIndex.length, lengthOfNowTime)
+        if timeLeftDelimiterIndex.length != 0 && timeRightDelimiterIndex.length != 0 {
+            // 「<遅延時間>」「</遅延時間>」両方あれば置換実行
+            body.deleteCharacters(in: delRange)
+            body.insert(inTime, at: timeLeftDelimiterIndex.location+timeLeftDelimiterIndex.length)
+        }
+        
+        return String(body)
+    }
+    
+    //----------------------------------
+    // 関数名：mailComposeController
+    // 説明：メールを送信しない場合のクローズ処理
+    //----------------------------------
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        switch result {
+        case .cancelled:
+            print("キャンセル")
+        case .saved:
+            print("下書き保存")
+        case .sent:
+            print("送信成功")
+        default:
+            print("送信失敗")
+        }
+        dismiss(animated: true, completion: nil)
+    }
+    
+    //----------------------------------
+    // 関数名：clickSendMailBtn
     // 説明：[メール]ボタンが押された
     //----------------------------------
-    @IBAction func clickBtn_SendByMail() {
+    @IBAction func clickSendMailBtn() {
         print("mail")
         //メールを送信できるかチェック
         if MFMailComposeViewController.canSendMail()==false {
@@ -58,31 +134,12 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate{
         
         self.present(mailViewController, animated: true, completion: nil)
     }
-
     
     //----------------------------------
-    // 関数名：mailComposeController
-    // 説明：メールを送信しない場合のクローズ処理
-    //----------------------------------
-    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
-        switch result {
-        case .cancelled:
-            print("キャンセル")
-        case .saved:
-            print("下書き保存")
-        case .sent:
-            print("送信成功")
-        default:
-            print("送信失敗")
-        }
-        dismiss(animated: true, completion: nil)
-    }
-    
-    //----------------------------------
-    // 関数名：clickBtn_SendByOther
+    // 関数名：clickSendOtherBtn
     // 説明：[その他]ボタンが押された
     //----------------------------------
-    @IBAction func clickBtn_SendByOther(sender: AnyObject) {
+    @IBAction func clickSendOtherBtn(sender: AnyObject) {
         let text = "sample text"
         let items = [text]
         
@@ -93,5 +150,113 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate{
         self.present(activityVc, animated: true, completion: nil)
     }
 
+    //----------------------------------
+    // 関数名：clickTitleEditBtn
+    // 説明：件名の[編集]ボタンが押された
+    //----------------------------------
+    @IBAction func clickTitleEditBtn() {
+        self.performSegue(withIdentifier: "toTitleEdit", sender: nil)
+    }
+
+    //----------------------------------
+    // 関数名：clickBodyEditBtn
+    // 説明：本文の[編集]ボタンが押された
+    //----------------------------------
+    @IBAction func clickBodyEditBtn() {
+        self.performSegue(withIdentifier: "toBodyEdit", sender: nil)
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        
+        // 設定読み込み
+        let ud = UserDefaults.standard
+        self.ud_title = ud.string(forKey: "title")! // 件名
+        self.mailTitle.text = self.ud_title
+        self.ud_body = ud.string(forKey: "body")! // 本文
+        self.mailBody.text = self.ud_body
+        
+        var selectedReason: String = ""
+        var selectedTime: String = ""
+        
+        // 選択されている理由と時間を取得
+        let resonSelectedIndex  = reason.selectedSegmentIndex
+        let timeSelectedIndex   = time.selectedSegmentIndex
+        selectedReason  = reason.titleForSegment(at: resonSelectedIndex)!
+        selectedTime    = time.titleForSegment(at: timeSelectedIndex)!
+        
+        // 本文を置換
+        self.mailBody.text = self.changeMailBody(inReason:selectedReason, inTime:selectedTime)
+
+        // 表示用のメール本文を作り表示
+        self.dispMailBodyLabel()
+    }
+
+
+    //----------------------------------
+    // 関数名：dispMailBodyLabel
+    // 説明：表示用のメール本文を作り表示
+    //----------------------------------
+    func dispMailBodyLabel(){
+        // 本文取得
+        let body: NSMutableString = NSMutableString(string: self.mailBody.text)
+        
+        var delWord: NSRange!
+        var delRange: NSRange!
+        // 「名前」タグを削除
+        delWord = body.range(of: "<名前>")
+        if delWord.length != 0 {
+            delRange = NSMakeRange(delWord.location, delWord.length)
+            body.deleteCharacters(in: delRange)
+        }
+        // 「/名前」タグを削除
+        delWord = body.range(of: "</名前>")
+        if delWord.length != 0 {
+            delRange = NSMakeRange(delWord.location, delWord.length)
+            body.deleteCharacters(in: delRange)
+        }
+        // 「理由」タグを削除
+        delWord = body.range(of: "<理由>")
+        if delWord.length != 0 {
+            delRange = NSMakeRange(delWord.location, delWord.length)
+            body.deleteCharacters(in: delRange)
+        }
+        // 「/理由」タグを削除
+        delWord = body.range(of: "</理由>")
+        if delWord.length != 0 {
+            delRange = NSMakeRange(delWord.location, delWord.length)
+            body.deleteCharacters(in: delRange)
+        }
+        // 「遅延時間」タグを削除
+        delWord = body.range(of: "<遅延時間>")
+        if delWord.length != 0 {
+            delRange = NSMakeRange(delWord.location, delWord.length)
+            body.deleteCharacters(in: delRange)
+        }
+        // 「/遅延時間」タグを削除
+        delWord = body.range(of: "</遅延時間>")
+        if delWord.length != 0 {
+            delRange = NSMakeRange(delWord.location, delWord.length)
+            body.deleteCharacters(in: delRange)
+        }
+        self.mailBodyLabel.text = String(body)
+
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // NavigationBarが半透明かどうか
+        navigationController?.navigationBar.isTranslucent = false
+        // NavigationBarの色を変更します
+        navigationController?.navigationBar.barTintColor = UIColor(red: 212/255, green: 212/255, blue: 212/255, alpha: 1)
+        // NavigationBarに乗っている部品の色を変更します
+        navigationController?.navigationBar.tintColor = UIColor.white
+        // バーの左側にボタンを配置します(ライブラリ特有)
+        addLeftBarButtonWithImage(UIImage(named: "menu.png")!)
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
 }
 
