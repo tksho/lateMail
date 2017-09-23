@@ -47,7 +47,7 @@
                                             <segment title="10分"/>
                                             <segment title="15分"/>
                                             <segment title="20分"/>
-                                            <segment title="ほか"/>
+                                            <segment title="30分"/>
                                         </segments>
                                         <connections>
                                             <action selector="segmentedControlChanged:" destination="DMO-J2-8Ia" eventType="valueChanged" id="itF-wT-ErT"/>
@@ -81,7 +81,7 @@
                                         <segments>
                                             <segment title="電車遅延"/>
                                             <segment title="渋滞"/>
-                                            <segment title="ほか"/>
+                                            <segment title="体調不良"/>
                                         </segments>
                                         <connections>
                                             <action selector="segmentedControlChanged:" destination="DMO-J2-8Ia" eventType="valueChanged" id="SuQ-Iq-v4M"/>
