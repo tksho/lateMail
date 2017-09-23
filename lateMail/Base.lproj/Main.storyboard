@@ -308,7 +308,7 @@
                                 <rect key="frame" x="8" y="0.0" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
-                                    <navigationItem title="プロフィール設定" id="RiM-z1-0yu">
+                                    <navigationItem title="差出人名設定" id="RiM-z1-0yu">
                                         <barButtonItem key="leftBarButtonItem" title="キャンセル" id="gD7-6f-NnV">
                                             <connections>
                                                 <action selector="cancel" destination="VCP-KV-R9N" id="Dek-FS-dfA"/>
@@ -347,7 +347,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="nameTextField" destination="C9l-s1-2x0" id="e5M-P5-EgW"/>
+                        <outlet property="fromNameTextField" destination="C9l-s1-2x0" id="brq-CC-vGR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4d3-9b-IHh" userLabel="First Responder" sceneMemberID="firstResponder"/>

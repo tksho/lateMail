@@ -10,14 +10,14 @@ import UIKit
 
 class ProfileEditViewController: UIViewController {
 
-    @IBOutlet var nameTextField:UITextField!
+    @IBOutlet var fromNameTextField:UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // 設定値読み込み
         let ud = UserDefaults.standard
-        self.nameTextField.text = ud.string(forKey: "name")
+        self.fromNameTextField.text = ud.string(forKey: "fromName")
     }
 
     override func didReceiveMemoryWarning() {
@@ -32,7 +32,7 @@ class ProfileEditViewController: UIViewController {
     @IBAction func save() {
         // 保存
         let ud = UserDefaults.standard
-        ud.set(self.nameTextField.text, forKey: "name")
+        ud.set(self.fromNameTextField.text, forKey: "fromName")
         
         print("保存しました")
         

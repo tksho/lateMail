@@ -19,10 +19,14 @@ class MailAddressEditViewController: UIViewController {
     @IBOutlet var bcc1:UITextField!
     @IBOutlet var bcc2:UITextField!
     @IBOutlet var bcc3:UITextField!
+    var mail: Mail = Mail(title:"", body: "", fromName: "", to1: "", to2: "", to3: "", cc1: "", cc2: "", cc3: "", bcc1: "", bcc2: "", bcc3: "" )
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // 保存データ読み込み
+        self.mail.loadFromUd()
+        
         // 設定値読み込み
         let ud = UserDefaults.standard
         self.to1.text = ud.string(forKey: "to1")

@@ -28,7 +28,7 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate{
     var ud_bcc1: String = ""
     var ud_bcc2: String = ""
     var ud_bcc3: String = ""
-    var ud_name: String = ""
+    var ud_fromName: String = ""
     var ud_title: String = ""
     var ud_body: String = ""
     
@@ -91,16 +91,16 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate{
         
         // 「<名前></名前>」で囲われている文字を置換
         let ud = UserDefaults.standard
-        let name = ud.string(forKey: "name")
-        let nameLeftDelimiterIndex = body.range(of: "<名前>")
-        let nameRightDelimiterIndex = body.range(of: "</名前>")
-        let lengthOfNowName = nameRightDelimiterIndex.location -
-            (nameLeftDelimiterIndex.location + nameLeftDelimiterIndex.length)
-        delRange = NSMakeRange(nameLeftDelimiterIndex.location+nameLeftDelimiterIndex.length, lengthOfNowName)
-        if nameLeftDelimiterIndex.length != 0 && nameRightDelimiterIndex.length != 0 {
+        let fromName = ud.string(forKey: "fromName")
+        let fromNameLeftDelimiterIndex = body.range(of: "<名前>")
+        let fromNameRightDelimiterIndex = body.range(of: "</名前>")
+        let lengthOfNowFromName = fromNameRightDelimiterIndex.location -
+            (fromNameLeftDelimiterIndex.location + fromNameLeftDelimiterIndex.length)
+        delRange = NSMakeRange(fromNameLeftDelimiterIndex.location+fromNameLeftDelimiterIndex.length, lengthOfNowFromName)
+        if fromNameLeftDelimiterIndex.length != 0 && fromNameRightDelimiterIndex.length != 0 && fromName != nil {
             // 「<名前>」「</名前>」両方あれば置換実行
             body.deleteCharacters(in: delRange)
-            body.insert(name!, at: nameLeftDelimiterIndex.location+nameLeftDelimiterIndex.length)
+            body.insert(fromName!, at: fromNameLeftDelimiterIndex.location+fromNameLeftDelimiterIndex.length)
         }
         
         return String(body)
@@ -228,16 +228,16 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate{
 
         // 「<名前></名前>」で囲われている文字を置換
         let ud = UserDefaults.standard
-        let name = ud.string(forKey: "name")
-        let nameLeftDelimiterIndex = title.range(of: "<名前>")
-        let nameRightDelimiterIndex = title.range(of: "</名前>")
-        let lengthOfNowName = nameRightDelimiterIndex.location -
-            (nameLeftDelimiterIndex.location + nameLeftDelimiterIndex.length)
-        var delRange = NSMakeRange(nameLeftDelimiterIndex.location+nameLeftDelimiterIndex.length, lengthOfNowName)
-        if nameLeftDelimiterIndex.length != 0 && nameRightDelimiterIndex.length != 0 {
+        let fromName = ud.string(forKey: "fromName")
+        let fromNameLeftDelimiterIndex = title.range(of: "<名前>")
+        let fromNameRightDelimiterIndex = title.range(of: "</名前>")
+        let lengthOfNowFromName = fromNameRightDelimiterIndex.location -
+            (fromNameLeftDelimiterIndex.location + fromNameLeftDelimiterIndex.length)
+        var delRange = NSMakeRange(fromNameLeftDelimiterIndex.location+fromNameLeftDelimiterIndex.length, lengthOfNowFromName)
+        if fromNameLeftDelimiterIndex.length != 0 && fromNameRightDelimiterIndex.length != 0 && fromName != nil {
             // 「<名前>」「</名前>」両方あれば置換実行
             title.deleteCharacters(in: delRange)
-            title.insert(name!, at: nameLeftDelimiterIndex.location+nameLeftDelimiterIndex.length)
+            title.insert(fromName!, at: fromNameLeftDelimiterIndex.location+fromNameLeftDelimiterIndex.length)
         }
 
         self.mailTitle.text = String(title)
