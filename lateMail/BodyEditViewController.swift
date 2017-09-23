@@ -16,6 +16,10 @@ class BodyEditViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // ナビゲーションバー右上に[保存]ボタン設置
+        let rightSaveButton = UIBarButtonItem(title: "保存", style: .plain, target: self, action: #selector(BodyEditViewController.clickSaveBtn))
+        self.navigationItem.rightBarButtonItem = rightSaveButton
+
         // 保存データ読み込み
         self.mail.loadFromUd()
         self.bodyTextView.text = self.mail.body
@@ -24,14 +28,6 @@ class BodyEditViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    //----------------------------------
-    // 関数名：clickCancelBtn
-    // 説明：キャンセルボタンが押された
-    //----------------------------------
-    @IBAction func clickCancelBtn() {
-        self.dismiss(animated: true, completion: nil)
     }
     
     //----------------------------------

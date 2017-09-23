@@ -138,17 +138,13 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate{
         selectedReason  = reason.titleForSegment(at: resonSelectedIndex)!
         selectedTime    = time.titleForSegment(at: timeSelectedIndex)!
         
-        // 本文を置換
-        self.mail.body = self.mail.changeBody(inReason: selectedReason, inTime: selectedTime)
-
-        // 件名を置換
+        // 本文と件名を置換
         self.mail.title = self.mail.changeTitle(inReason: selectedReason, inTime: selectedTime)
+        self.mail.body = self.mail.changeBody(inReason: selectedReason, inTime: selectedTime)
         
-        // 表示用のメール本文を作り表示
-        self.mailBodyLabel.text = self.mail.dispBody()
-        
-        // 表示用のメール件名を作り表示
+        // 表示用のメール件名と本文を作り表示
         self.mailTitleLabel.text = self.mail.dispTitle()
+        self.mailBodyLabel.text = self.mail.dispBody()
         
     }
 
@@ -164,6 +160,8 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate{
         navigationController?.navigationBar.tintColor = UIColor.white
         // バーの左側にボタンを配置します(ライブラリ特有)
         addLeftBarButtonWithImage(UIImage(named: "menu.png")!)
+        // タイトルをセット
+        self.navigationItem.title = "かんたん本文作成"
     }
     
     override func didReceiveMemoryWarning() {

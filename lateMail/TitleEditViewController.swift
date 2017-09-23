@@ -16,6 +16,10 @@ class TitleEditViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // ナビゲーションバー右上に[保存]ボタン設置
+        let rightSaveButton = UIBarButtonItem(title: "保存", style: .plain, target: self, action: #selector(TitleEditViewController.clickSaveBtn))
+        self.navigationItem.rightBarButtonItem = rightSaveButton
+        
         // 保存データ読み込み
         self.mail.loadFromUd()
         self.titleTextField.text = self.mail.title
@@ -26,14 +30,6 @@ class TitleEditViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    //----------------------------------
-    // 関数名：clickCancelBtn
-    // 説明：キャンセルボタンが押された
-    //----------------------------------
-    @IBAction func clickCancelBtn() {
-        self.dismiss(animated: true, completion: nil)
-    }
-
     //----------------------------------
     // 関数名：clickSaveBtn
     // 説明：保存ボタンが押された
