@@ -50,6 +50,9 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate{
 
         // 本文を置換
         self.mailBody.text = self.changeMailBody(inReason:selectedReason, inTime:selectedTime)
+
+        // 表示用のメール本文を作り表示
+        self.dispMailBodyLabel()
     }
  
     //----------------------------------
@@ -183,7 +186,17 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate{
         
         // 本文を置換
         self.mailBody.text = self.changeMailBody(inReason:selectedReason, inTime:selectedTime)
-        
+
+        // 表示用のメール本文を作り表示
+        self.dispMailBodyLabel()
+    }
+
+
+    //----------------------------------
+    // 関数名：dispMailBodyLabel
+    // 説明：表示用のメール本文を作り表示
+    //----------------------------------
+    func dispMailBodyLabel(){
         // 本文取得
         let body: NSMutableString = NSMutableString(string: self.mailBody.text)
         
@@ -226,6 +239,7 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate{
             body.deleteCharacters(in: delRange)
         }
         self.mailBodyLabel.text = String(body)
+
     }
     
     override func viewDidLoad() {
