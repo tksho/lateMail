@@ -17,12 +17,14 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate{
     @IBOutlet var mailBody:UITextView!
     @IBOutlet var reason:UISegmentedControl!
     @IBOutlet var time:UISegmentedControl!
-
+    @IBOutlet var mailBodyLabel:UILabel!
+    
     //----------------------------------
     // 関数名：segmentedControlChanged
     // 説明：理由or時間が指定された
     //----------------------------------
     @IBAction func segmentedControlChanged(_ sender: UISegmentedControl) {
+
         print("segmentedControlChanged")
 
         var selectedReason: String = ""
@@ -142,8 +144,53 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate{
     @IBAction func clickBodyEditBtn() {
         self.performSegue(withIdentifier: "toBodyEdit", sender: nil)
     }
-    
 
+    override func viewWillAppear(_ animated: Bool) {
+        var selectedReason: String = ""
+        var selectedTime: String = ""
+        
+        // 選択されている理由と時間を取得
+        let resonSelectedIndex  = reason.selectedSegmentIndex
+        let timeSelectedIndex   = time.selectedSegmentIndex
+        selectedReason  = reason.titleForSegment(at: resonSelectedIndex)!
+        selectedTime    = time.titleForSegment(at: timeSelectedIndex)!
+        
+        // 本文取得
+        let body: NSMutableString = NSMutableString(string: self.mailBody.text)
+        
+        // 「名前」タグを削除
+        var delWord = body.range(of: "<名前>")
+        var delRange = NSMakeRange(delWord.location, delWord.length)
+        body.deleteCharacters(in: delRange)
+
+        // 「/名前」タグを削除
+        delWord = body.range(of: "</名前>")
+        delRange = NSMakeRange(delWord.location, delWord.length)
+        body.deleteCharacters(in: delRange)
+
+        // 「理由」タグを削除
+        delWord = body.range(of: "<理由>")
+        delRange = NSMakeRange(delWord.location, delWord.length)
+        body.deleteCharacters(in: delRange)
+
+        // 「/理由」タグを削除
+        delWord = body.range(of: "</理由>")
+        delRange = NSMakeRange(delWord.location, delWord.length)
+        body.deleteCharacters(in: delRange)
+
+        // 「遅延時間」タグを削除
+        delWord = body.range(of: "<遅延時間>")
+        delRange = NSMakeRange(delWord.location, delWord.length)
+        body.deleteCharacters(in: delRange)
+
+        // 「/遅延時間」タグを削除
+        delWord = body.range(of: "</遅延時間>")
+        delRange = NSMakeRange(delWord.location, delWord.length)
+        body.deleteCharacters(in: delRange)
+
+        self.mailBodyLabel.text = String(body)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // NavigationBarが半透明かどうか
@@ -160,8 +207,5 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate{
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-    
-    
 }
 

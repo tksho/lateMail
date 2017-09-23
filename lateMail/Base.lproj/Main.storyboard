@@ -61,7 +61,7 @@
                                             <action selector="clickSendMailBtn" destination="DMO-J2-8Ia" eventType="touchUpInside" id="VZG-am-dHr"/>
                                         </connections>
                                     </button>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="○○、遅刻" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Woe-Ao-xBk">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="&lt;名前&gt;&lt;/名前&gt;、遅刻" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Woe-Ao-xBk">
                                         <rect key="frame" x="62" y="252" width="251" height="33"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -83,7 +83,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="お疲れ様です。\n改行&lt;名前&gt;&lt;/名前&gt;です。改行改行すみませんが&lt;理由&gt;電車遅延&lt;/理由&gt;により&lt;遅延時間&gt;&lt;/遅延時間&gt;ほど遅れそうです。改行よろしく。" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="1Dv-9S-sDb">
-                                        <rect key="frame" x="62" y="333" width="251" height="140"/>
+                                        <rect key="frame" x="-173" y="378" width="251" height="140"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -109,14 +109,6 @@
                                             <action selector="clickSendOtherBtnWithSender:" destination="DMO-J2-8Ia" eventType="touchUpInside" id="E4b-GL-n9T"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ia9-eX-ILi">
-                                        <rect key="frame" x="282" y="218" width="31" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="編集"/>
-                                        <connections>
-                                            <action selector="clickTitleEditBtn" destination="DMO-J2-8Ia" eventType="touchUpInside" id="11C-jn-gh2"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GmL-iz-fSz">
                                         <rect key="frame" x="282" y="299" width="31" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -125,6 +117,25 @@
                                             <action selector="clickBodyEditBtn" destination="DMO-J2-8Ia" eventType="touchUpInside" id="z65-qd-M9W"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ia9-eX-ILi">
+                                        <rect key="frame" x="282" y="218" width="31" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="編集"/>
+                                        <connections>
+                                            <action selector="clickTitleEditBtn" destination="DMO-J2-8Ia" eventType="touchUpInside" id="11C-jn-gh2"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lMg-fI-TdJ">
+                                        <rect key="frame" x="62" y="337" width="251" height="141"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <string key="text">お疲れ様です。&lt;名前&gt;&lt;/名前&gt;です。 
+すみませんが&lt;理由&gt;電車遅延&lt;/理由&gt;により&lt;遅延時間&gt;&lt;/遅延時間&gt;ほど遅れそうです。
+
+よろしくお願いいたします。</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
@@ -133,6 +144,7 @@
                     </view>
                     <connections>
                         <outlet property="mailBody" destination="1Dv-9S-sDb" id="h3J-ke-gCR"/>
+                        <outlet property="mailBodyLabel" destination="lMg-fI-TdJ" id="xjn-D9-LjO"/>
                         <outlet property="mailTitle" destination="Woe-Ao-xBk" id="UfD-8u-GBf"/>
                         <outlet property="reason" destination="sfV-hj-zyE" id="umB-au-RyK"/>
                         <outlet property="time" destination="ysw-Oz-4Ie" id="mLT-Zb-xTh"/>
@@ -142,7 +154,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rST-xg-YL4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3354" y="291"/>
+            <point key="canvasLocation" x="3060" y="-0.44977511244377816"/>
         </scene>
         <!--Left View Controller-->
         <scene sceneID="Mup-Ky-hdf">
@@ -176,8 +188,6 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="BiB-T7-dA9" id="5vq-Lw-REt"/>
-                        <segue destination="5kJ-lf-XOx" kind="show" identifier="toBodyEdit" id="m9T-F2-ZMy"/>
-                        <segue destination="9UV-ei-x0h" kind="show" identifier="toTitleEdit" id="pgO-j1-Pti"/>
                         <segue destination="aGu-b5-zvm" kind="show" identifier="toMailAddressEdit" id="dpJ-8c-1vl"/>
                         <segue destination="VCP-KV-R9N" kind="show" identifier="toProfileEdit" id="eUy-64-tfu"/>
                     </connections>
@@ -198,20 +208,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jif-F4-N0p">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <items>
-                                    <navigationItem title="本文編集" id="Mdl-tq-aJT">
-                                        <barButtonItem key="leftBarButtonItem" title="キャンセル" id="R97-Tm-cAa">
-                                            <connections>
-                                                <action selector="cancel" destination="5kJ-lf-XOx" id="2GY-6q-4kL"/>
-                                            </connections>
-                                        </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" title="完了" id="nGz-9E-Z51"/>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="お疲れ様です。\n改行&lt;名前&gt;&lt;/名前&gt;です。改行改行すみませんが&lt;理由&gt;電車遅延&lt;/理由&gt;により&lt;遅延時間&gt;&lt;/遅延時間&gt;ほど遅れそうです。改行よろしく。" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="GSI-Da-lmY">
                                 <rect key="frame" x="16" y="61" width="343" height="422"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -224,7 +220,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vqC-e3-g5E" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4159" y="-1110"/>
+            <point key="canvasLocation" x="3060" y="-1539"/>
         </scene>
         <!--Title Edit View Controller-->
         <scene sceneID="PGh-PG-TgJ">
@@ -238,20 +234,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mdX-nR-m8Y">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <items>
-                                    <navigationItem title="件名編集" id="Anp-Vv-TMd">
-                                        <barButtonItem key="leftBarButtonItem" title="キャンセル" id="4qP-qW-itq">
-                                            <connections>
-                                                <action selector="cancel" destination="9UV-ei-x0h" id="Doo-5X-xtt"/>
-                                            </connections>
-                                        </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" title="保存" id="x1Q-UY-9Xn"/>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fkv-Q8-ytT">
                                 <rect key="frame" x="52" y="88" width="270" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -265,7 +247,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Er7-ga-Zoe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3145" y="-1155"/>
+            <point key="canvasLocation" x="3060" y="-824"/>
         </scene>
         <!--Profile Edit View Controller-->
         <scene sceneID="kZL-fN-cmp">
@@ -320,7 +302,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4d3-9b-IHh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1676" y="-1110"/>
+            <point key="canvasLocation" x="1449" y="-1389"/>
         </scene>
         <!--Slide View Controller-->
         <scene sceneID="PbB-Jn-lm8">
@@ -499,11 +481,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qfw-bW-4R5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="740" y="-960"/>
+            <point key="canvasLocation" x="1449" y="-694"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="ziw-LA-5xn"/>
-        <segue reference="B7z-of-t3Q"/>
-    </inferredMetricsTieBreakers>
 </document>
