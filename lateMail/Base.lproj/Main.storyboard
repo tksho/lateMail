@@ -61,8 +61,8 @@
                                             <action selector="clickSendMailBtn" destination="DMO-J2-8Ia" eventType="touchUpInside" id="VZG-am-dHr"/>
                                         </connections>
                                     </button>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="&lt;名前&gt;&lt;/名前&gt;、遅刻" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Woe-Ao-xBk">
-                                        <rect key="frame" x="62" y="252" width="251" height="33"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="&lt;名前&gt;&lt;/名前&gt;、遅刻" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Woe-Ao-xBk">
+                                        <rect key="frame" x="0.0" y="16" width="251" height="33"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -118,17 +118,6 @@
                                             <action selector="clickTitleEditBtn" destination="DMO-J2-8Ia" eventType="touchUpInside" id="11C-jn-gh2"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lMg-fI-TdJ">
-                                        <rect key="frame" x="62" y="337" width="251" height="141"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <string key="text">お疲れ様です。&lt;名前&gt;&lt;/名前&gt;です。 
-すみませんが&lt;理由&gt;電車遅延&lt;/理由&gt;により&lt;遅延時間&gt;&lt;/遅延時間&gt;ほど遅れそうです。
-
-よろしくお願いいたします。</string>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="お疲れ様です。\n改行&lt;名前&gt;&lt;/名前&gt;です。改行改行すみませんが&lt;理由&gt;電車遅延&lt;/理由&gt;により&lt;遅延時間&gt;&lt;/遅延時間&gt;ほど遅れそうです。改行よろしく。" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="1Dv-9S-sDb">
                                         <rect key="frame" x="98" y="463" width="251" height="140"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -136,6 +125,37 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ST9-df-v5O">
+                                        <rect key="frame" x="62" y="240" width="249" height="41"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="mJd-E1-y8V">
+                                        <rect key="frame" x="62" y="337" width="251" height="86"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="uXy-ja-KCO">
+                                                <rect key="frame" x="0.0" y="0.0" width="251" height="86"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lMg-fI-TdJ">
+                                                        <rect key="frame" x="0.0" y="0.0" width="251" height="86"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="251" id="sbD-xP-VlQ"/>
+                                                        </constraints>
+                                                        <string key="text">お疲れ様です。&lt;名前&gt;&lt;/名前&gt;です。 
+すみませんが&lt;理由&gt;電車遅延&lt;/理由&gt;により&lt;遅延時間&gt;&lt;/遅延時間&gt;ほど遅れそうです。
+
+よろしくお願いいたします。</string>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
@@ -146,6 +166,7 @@
                         <outlet property="mailBody" destination="1Dv-9S-sDb" id="h3J-ke-gCR"/>
                         <outlet property="mailBodyLabel" destination="lMg-fI-TdJ" id="xjn-D9-LjO"/>
                         <outlet property="mailTitle" destination="Woe-Ao-xBk" id="UfD-8u-GBf"/>
+                        <outlet property="mailTitleLabel" destination="ST9-df-v5O" id="Epc-ZB-CkV"/>
                         <outlet property="reason" destination="sfV-hj-zyE" id="umB-au-RyK"/>
                         <outlet property="time" destination="ysw-Oz-4Ie" id="mLT-Zb-xTh"/>
                         <segue destination="9UV-ei-x0h" kind="show" identifier="toTitleEdit" id="B7z-of-t3Q"/>
@@ -293,7 +314,11 @@
                                                 <action selector="cancel" destination="VCP-KV-R9N" id="Dek-FS-dfA"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" title="保存" id="rIz-ty-Je5"/>
+                                        <barButtonItem key="rightBarButtonItem" title="保存" id="rIz-ty-Je5">
+                                            <connections>
+                                                <action selector="save" destination="VCP-KV-R9N" id="BrZ-hl-iwF"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -321,6 +346,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="nameTextField" destination="C9l-s1-2x0" id="e5M-P5-EgW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4d3-9b-IHh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -367,7 +395,11 @@
                                                 <action selector="cancel" destination="aGu-b5-zvm" id="TD5-pp-cfh"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" title="保存" id="bcV-rq-QDz"/>
+                                        <barButtonItem key="rightBarButtonItem" title="保存" id="bcV-rq-QDz">
+                                            <connections>
+                                                <action selector="save" destination="aGu-b5-zvm" id="PIP-PS-h4G"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -500,6 +532,17 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="bcc1" destination="NQ4-0g-eTA" id="vZq-7z-VZw"/>
+                        <outlet property="bcc2" destination="wcO-sw-NPV" id="1xw-hY-4Bl"/>
+                        <outlet property="bcc3" destination="9yp-7h-MY3" id="QMO-fX-ipo"/>
+                        <outlet property="cc1" destination="w6P-Lb-fWE" id="DdA-iQ-Own"/>
+                        <outlet property="cc2" destination="gAW-uO-cnW" id="FfP-cy-Twb"/>
+                        <outlet property="cc3" destination="GI0-Vy-GKI" id="13J-Ni-36b"/>
+                        <outlet property="to1" destination="AvH-3O-1cd" id="FhE-Uv-axV"/>
+                        <outlet property="to2" destination="ba5-yT-S4w" id="OYF-a7-p4o"/>
+                        <outlet property="to3" destination="Tfh-L9-CES" id="dDg-1V-fc5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qfw-bW-4R5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

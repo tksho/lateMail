@@ -10,10 +10,14 @@ import UIKit
 
 class ProfileEditViewController: UIViewController {
 
+    @IBOutlet var nameTextField:UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        // 設定値読み込み
+        let ud = UserDefaults.standard
+        self.nameTextField.text = ud.string(forKey: "name")
     }
 
     override func didReceiveMemoryWarning() {
@@ -25,14 +29,15 @@ class ProfileEditViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func save() {
+        // 保存
+        let ud = UserDefaults.standard
+        ud.set(self.nameTextField.text, forKey: "name")
+        
+        print("保存しました")
+        
+        self.dismiss(animated: true, completion: nil)
+        
     }
-    */
 
 }
