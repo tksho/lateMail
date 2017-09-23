@@ -37,7 +37,6 @@ class TitleEditViewController: UIViewController {
         print("保存しました")
 
         self.dismiss(animated: true, completion: nil)
-        
     }
     
 }
