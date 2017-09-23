@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7944F1621F76AE00002C1BE5 /* IntroFromNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7944F1611F76AE00002C1BE5 /* IntroFromNameViewController.swift */; };
+		7944F1641F76B39C002C1BE5 /* IntroMailAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7944F1631F76B39C002C1BE5 /* IntroMailAddressViewController.swift */; };
+		7944F1661F76B572002C1BE5 /* IntroEndViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7944F1651F76B572002C1BE5 /* IntroEndViewController.swift */; };
 		794E69001F768CD5001040FC /* Mail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794E68FF1F768CD5001040FC /* Mail.swift */; };
 		79A487F21F74002400E6BA09 /* BodyEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A487F11F74002400E6BA09 /* BodyEditViewController.swift */; };
 		79A487F41F74004900E6BA09 /* MailAddressEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A487F31F74004900E6BA09 /* MailAddressEditViewController.swift */; };
@@ -26,6 +29,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7944F1611F76AE00002C1BE5 /* IntroFromNameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroFromNameViewController.swift; sourceTree = "<group>"; };
+		7944F1631F76B39C002C1BE5 /* IntroMailAddressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroMailAddressViewController.swift; sourceTree = "<group>"; };
+		7944F1651F76B572002C1BE5 /* IntroEndViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroEndViewController.swift; sourceTree = "<group>"; };
 		794E68FF1F768CD5001040FC /* Mail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mail.swift; sourceTree = "<group>"; };
 		79A487F11F74002400E6BA09 /* BodyEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BodyEditViewController.swift; sourceTree = "<group>"; };
 		79A487F31F74004900E6BA09 /* MailAddressEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MailAddressEditViewController.swift; sourceTree = "<group>"; };
@@ -102,6 +108,9 @@
 			children = (
 				AB53B65E1F4D507E00BDD317 /* AppDelegate.swift */,
 				79A487F11F74002400E6BA09 /* BodyEditViewController.swift */,
+				7944F1651F76B572002C1BE5 /* IntroEndViewController.swift */,
+				7944F1611F76AE00002C1BE5 /* IntroFromNameViewController.swift */,
+				7944F1631F76B39C002C1BE5 /* IntroMailAddressViewController.swift */,
 				ABA8E7C01F5696FD0044D613 /* LeftViewController.swift */,
 				794E68FF1F768CD5001040FC /* Mail.swift */,
 				79A487F31F74004900E6BA09 /* MailAddressEditViewController.swift */,
@@ -246,11 +255,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				794E69001F768CD5001040FC /* Mail.swift in Sources */,
+				7944F1661F76B572002C1BE5 /* IntroEndViewController.swift in Sources */,
+				7944F1641F76B39C002C1BE5 /* IntroMailAddressViewController.swift in Sources */,
 				79A487FA1F74093D00E6BA09 /* ProfileEditViewController.swift in Sources */,
 				79A487F41F74004900E6BA09 /* MailAddressEditViewController.swift in Sources */,
 				79A487F21F74002400E6BA09 /* BodyEditViewController.swift in Sources */,
 				79A487F61F74005500E6BA09 /* TitleEditViewController.swift in Sources */,
 				AB53B6611F4D507E00BDD317 /* ViewController.swift in Sources */,
+				7944F1621F76AE00002C1BE5 /* IntroFromNameViewController.swift in Sources */,
 				ABA8E7C11F5696FD0044D613 /* LeftViewController.swift in Sources */,
 				AB53B65F1F4D507E00BDD317 /* AppDelegate.swift in Sources */,
 				AB53B6861F56925D00BDD317 /* SlideViewController.swift in Sources */,

@@ -76,6 +76,8 @@ class Mail: NSObject {
         ud.set(self.bcc1, forKey: "bcc1")
         ud.set(self.bcc2, forKey: "bcc2")
         ud.set(self.bcc3, forKey: "bcc3")
+
+        ud.synchronize()
     }
 
     //----------------------------------

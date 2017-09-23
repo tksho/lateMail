@@ -19,7 +19,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let ud = UserDefaults.standard
         let isFirstLaunch = ud.bool(forKey: "isFirstLaunch")
         
-        if isFirstLaunch == true {
+        // 初回起動なら
+        if isFirstLaunch == false {
+            // デフォルト値を保存
+            let mail: Mail = Mail(title:"<名前></名前>、遅刻", body: "お疲れ様です。\n<名前></名前>です。\n\nすみませんが<理由></理由>により、\n<遅延時間></遅延時間>ほど遅れます。\n\nすみませんがよろしくお願いします。", fromName: "佐藤", to1: "", to2: "", to3: "", cc1: "", cc2: "", cc3: "", bcc1: "", bcc2: "", bcc3: "" )
+            mail.saveToUd()
+
+            // 初回起動したことを記録
+            ud.set("true", forKey: "isFirstLaunch")
+            ud.synchronize()
+
             self.window = UIWindow(frame: UIScreen.main.bounds)
             let storyboard = UIStoryboard(name: "Intro", bundle: Bundle.main)
             let rootViewController = storyboard.instantiateViewController(withIdentifier: "intro")
