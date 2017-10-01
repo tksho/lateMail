@@ -28,7 +28,7 @@ class IntroBeginViewController: UIViewController {
     //----------------------------------
     @IBAction func clickNextBtn(){
         // イントロ次画面へ遷移
-        self.performSegue(withIdentifier: "toIntroFromName", sender: nil)
+        self.performSegue(withIdentifier: "toIntroFromNameView", sender: nil)
         
     }
     
