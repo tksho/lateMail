@@ -11,7 +11,7 @@ import UIKit
 class LeftViewController: UIViewController, UITableViewDelegate,UITableViewDataSource {
     
     @IBOutlet var tableView: UITableView!
-    var leftMenuList = ["プロフィール設定","メール宛先設定","自動作成設定"]
+    var leftMenuList = ["名前設定","メール宛先設定","自動作成設定"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +26,7 @@ class LeftViewController: UIViewController, UITableViewDelegate,UITableViewDataS
     // メニューがクリックされたら画面遷移
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
-        if( leftMenuList[indexPath.row] == "プロフィール設定" ) {
+        if( leftMenuList[indexPath.row] == "名前設定" ) {
             self.performSegue(withIdentifier: "toProfileEdit", sender: nil)
         }
         else if( leftMenuList[indexPath.row] == "メール宛先設定" ) {

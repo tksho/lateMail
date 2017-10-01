@@ -23,7 +23,7 @@ class IntroFromNameViewController: UIViewController {
             self.mail.fromName = fromNameTextField.text
             self.mail.saveToUd()
         }
-        // イントロ最後画面へ遷移
+        // イントロ次画面へ遷移
         self.performSegue(withIdentifier: "toIntroAddress", sender: nil)
  
     }
