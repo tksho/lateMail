@@ -6,6 +6,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -21,16 +23,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="遅刻らくらく連絡" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ff4-Fa-4pX">
-                                <rect key="frame" x="79" y="74" width="218" height="43"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon-toka.png" translatesAutoresizingMaskIntoConstraints="NO" id="eC3-Kj-3Ak">
-                                <rect key="frame" x="111" y="125" width="154" height="154"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-toka.png" translatesAutoresizingMaskIntoConstraints="NO" id="eC3-Kj-3Ak">
+                                <rect key="frame" x="111" y="120.5" width="153" height="155"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="155" id="gs5-8h-kMg"/>
+                                    <constraint firstAttribute="width" secondItem="eC3-Kj-3Ak" secondAttribute="height" multiplier="153:155" id="xAk-8e-N7f"/>
+                                </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UfO-Qe-ivl">
                                 <rect key="frame" x="43" y="407" width="288" height="21"/>
@@ -39,33 +37,56 @@
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="名前とメール送信先を登録できます" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aaH-MG-5Ws">
-                                <rect key="frame" x="44" y="362" width="288" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="名前とメール送信先を登録できます" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aaH-MG-5Ws">
+                                <rect key="frame" x="46" y="320.5" width="283" height="14.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BRA-XC-TRr">
-                                <rect key="frame" x="126" y="333" width="123" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="初期設定を始める"/>
-                                <connections>
-                                    <action selector="clickNextBtn" destination="KrW-Bb-5SW" eventType="touchUpInside" id="YSh-XX-HAp"/>
-                                    <action selector="clickNextBtn" destination="0Xe-1y-RyL" eventType="touchUpInside" id="cbZ-3b-eLo"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8oO-8j-3nh">
-                                <rect key="frame" x="140" y="399" width="95" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8oO-8j-3nh">
+                                <rect key="frame" x="36" y="354.5" width="303" height="30"/>
                                 <state key="normal" title="スキップ"/>
                                 <connections>
                                     <action selector="clickSkipBtn" destination="KrW-Bb-5SW" eventType="touchUpInside" id="YJx-Iv-9Gd"/>
                                     <action selector="clickSkipBtn" destination="0Xe-1y-RyL" eventType="touchUpInside" id="lkK-BI-How"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="遅刻らくらくメール" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ff4-Fa-4pX">
+                                <rect key="frame" x="21" y="70" width="333" height="25.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BRA-XC-TRr">
+                                <rect key="frame" x="21" y="285.5" width="333" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="RWd-Ne-7Ac"/>
+                                </constraints>
+                                <state key="normal" title="初期設定を始める"/>
+                                <connections>
+                                    <action selector="clickNextBtn" destination="KrW-Bb-5SW" eventType="touchUpInside" id="YSh-XX-HAp"/>
+                                    <action selector="clickNextBtn" destination="0Xe-1y-RyL" eventType="touchUpInside" id="cbZ-3b-eLo"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.92146831750869751" green="0.92162626981735229" blue="0.92145836353302002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="8oO-8j-3nh" firstAttribute="top" secondItem="aaH-MG-5Ws" secondAttribute="bottom" constant="20" id="3jT-BW-HWC"/>
+                            <constraint firstItem="8oO-8j-3nh" firstAttribute="leading" secondItem="Ako-nb-m5H" secondAttribute="leadingMargin" constant="20" id="4I0-1F-eOT"/>
+                            <constraint firstItem="aaH-MG-5Ws" firstAttribute="top" secondItem="BRA-XC-TRr" secondAttribute="bottom" constant="5" id="B8k-JT-vYe"/>
+                            <constraint firstItem="aaH-MG-5Ws" firstAttribute="leading" secondItem="Ako-nb-m5H" secondAttribute="leadingMargin" constant="30" id="GTK-Q5-AdL"/>
+                            <constraint firstItem="eC3-Kj-3Ak" firstAttribute="top" secondItem="Ff4-Fa-4pX" secondAttribute="bottom" constant="25" id="NFC-ag-9L1"/>
+                            <constraint firstItem="BRA-XC-TRr" firstAttribute="top" secondItem="eC3-Kj-3Ak" secondAttribute="bottom" constant="10" id="RmR-e2-Pkb"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="BRA-XC-TRr" secondAttribute="trailing" constant="5" id="XKT-QT-eFA"/>
+                            <constraint firstItem="Ff4-Fa-4pX" firstAttribute="leading" secondItem="Ako-nb-m5H" secondAttribute="leadingMargin" constant="5" id="bDc-r1-Yvc"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="8oO-8j-3nh" secondAttribute="trailing" constant="20" id="bIt-Dm-AwZ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="eC3-Kj-3Ak" secondAttribute="trailing" constant="95" id="bmH-kJ-cLC"/>
+                            <constraint firstItem="BRA-XC-TRr" firstAttribute="leading" secondItem="Ako-nb-m5H" secondAttribute="leadingMargin" constant="5" id="eos-dk-CQl"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Ff4-Fa-4pX" secondAttribute="trailing" constant="5" id="fPQ-Ai-fno"/>
+                            <constraint firstItem="eC3-Kj-3Ak" firstAttribute="leading" secondItem="Ako-nb-m5H" secondAttribute="leadingMargin" constant="95" id="huM-Qw-6Pv"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="aaH-MG-5Ws" secondAttribute="trailing" constant="30" id="vC7-mo-ecZ"/>
+                            <constraint firstItem="Ff4-Fa-4pX" firstAttribute="top" secondItem="gvE-0r-XfS" secondAttribute="bottom" constant="50" id="x7c-I6-UXQ"/>
+                        </constraints>
                     </view>
                     <connections>
                         <segue destination="0Xe-1y-RyL" kind="show" identifier="toIntroFromNameView" id="YJp-jl-NtY"/>
@@ -87,52 +108,57 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tfe-wP-Yof">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="メールの件名と本文に利用されます" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a0z-VI-PzN">
-                                        <rect key="frame" x="41" y="235" width="288" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qjh-hZ-U5E">
-                                        <rect key="frame" x="170" y="385" width="31" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="次へ"/>
-                                        <connections>
-                                            <action selector="clickNextBtn" destination="0Xe-1y-RyL" eventType="touchUpInside" id="uxZ-pS-2oE"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oLp-Sb-cfX">
-                                        <rect key="frame" x="140" y="436" width="95" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="スキップ"/>
-                                        <connections>
-                                            <action selector="clickSkipBtn" destination="0Xe-1y-RyL" eventType="touchUpInside" id="7aT-Nf-QRb"/>
-                                        </connections>
-                                    </button>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="例（佐藤、鈴木、高橋）" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NYW-Zd-tzO">
-                                        <rect key="frame" x="59" y="281" width="256" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="あなたの名前を教えてください" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Ws-He-iEm">
-                                        <rect key="frame" x="64" y="206" width="243" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qjh-hZ-U5E">
+                                <rect key="frame" x="21" y="367" width="333" height="30"/>
+                                <state key="normal" title="次へ"/>
+                                <connections>
+                                    <action selector="clickNextBtn" destination="0Xe-1y-RyL" eventType="touchUpInside" id="uxZ-pS-2oE"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oLp-Sb-cfX">
+                                <rect key="frame" x="21" y="422" width="333" height="30"/>
+                                <state key="normal" title="スキップ"/>
+                                <connections>
+                                    <action selector="clickSkipBtn" destination="0Xe-1y-RyL" eventType="touchUpInside" id="7aT-Nf-QRb"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="例（佐藤、鈴木、高橋）" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NYW-Zd-tzO">
+                                <rect key="frame" x="26" y="237" width="323" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="あなたの名前を教えてください" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Ws-He-iEm">
+                                <rect key="frame" x="21" y="160" width="333" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="メールの件名と本文に利用されます" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a0z-VI-PzN">
+                                <rect key="frame" x="21" y="191" width="333" height="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.92146831750869751" green="0.92162626981735229" blue="0.92145836353302002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Qjh-hZ-U5E" firstAttribute="top" secondItem="NYW-Zd-tzO" secondAttribute="bottom" constant="100" id="B4i-0n-2YF"/>
+                            <constraint firstItem="oLp-Sb-cfX" firstAttribute="leading" secondItem="YiK-Si-rdE" secondAttribute="leadingMargin" constant="5" id="Egc-7A-swi"/>
+                            <constraint firstItem="NYW-Zd-tzO" firstAttribute="leading" secondItem="YiK-Si-rdE" secondAttribute="leadingMargin" constant="10" id="FX3-GG-K8x"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Qjh-hZ-U5E" secondAttribute="trailing" constant="5" id="Hcf-FP-3WX"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="8Ws-He-iEm" secondAttribute="trailing" constant="5" id="TWo-JO-gyn"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="a0z-VI-PzN" secondAttribute="trailing" constant="5" id="YDc-M0-N0O"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="NYW-Zd-tzO" secondAttribute="trailing" constant="10" id="ZRM-J0-gYx"/>
+                            <constraint firstItem="8Ws-He-iEm" firstAttribute="top" secondItem="szW-Fe-UQG" secondAttribute="bottom" constant="140" id="eu8-V8-MLl"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="oLp-Sb-cfX" secondAttribute="trailing" constant="5" id="hwX-v9-1fF"/>
+                            <constraint firstItem="8Ws-He-iEm" firstAttribute="leading" secondItem="YiK-Si-rdE" secondAttribute="leadingMargin" constant="5" id="kBX-ee-x7I"/>
+                            <constraint firstItem="a0z-VI-PzN" firstAttribute="leading" secondItem="YiK-Si-rdE" secondAttribute="leadingMargin" constant="5" id="mW2-b3-4iF"/>
+                            <constraint firstItem="oLp-Sb-cfX" firstAttribute="top" secondItem="Qjh-hZ-U5E" secondAttribute="bottom" constant="25" id="nTq-dr-5oG"/>
+                            <constraint firstItem="NYW-Zd-tzO" firstAttribute="top" secondItem="a0z-VI-PzN" secondAttribute="bottom" constant="30" id="neR-P2-W7e"/>
+                            <constraint firstItem="a0z-VI-PzN" firstAttribute="top" secondItem="8Ws-He-iEm" secondAttribute="bottom" constant="10" id="uL8-sk-bOF"/>
+                            <constraint firstItem="Qjh-hZ-U5E" firstAttribute="leading" secondItem="YiK-Si-rdE" secondAttribute="leadingMargin" constant="5" id="xOU-KV-k7j"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="fromNameTextField" destination="NYW-Zd-tzO" id="qzR-5b-cdc"/>

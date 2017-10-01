@@ -12,6 +12,7 @@
 		7944F1661F76B572002C1BE5 /* IntroEndViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7944F1651F76B572002C1BE5 /* IntroEndViewController.swift */; };
 		794E69001F768CD5001040FC /* Mail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794E68FF1F768CD5001040FC /* Mail.swift */; };
 		79673A831F80EA9B00416185 /* IntroBeginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79673A821F80EA9B00416185 /* IntroBeginViewController.swift */; };
+		79673A851F80FAC200416185 /* icon-toka.png in Resources */ = {isa = PBXBuildFile; fileRef = 79673A841F80FAC200416185 /* icon-toka.png */; };
 		79A487F21F74002400E6BA09 /* BodyEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A487F11F74002400E6BA09 /* BodyEditViewController.swift */; };
 		79A487F41F74004900E6BA09 /* MailAddressEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A487F31F74004900E6BA09 /* MailAddressEditViewController.swift */; };
 		79A487F61F74005500E6BA09 /* TitleEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A487F51F74005500E6BA09 /* TitleEditViewController.swift */; };
@@ -57,6 +58,7 @@
 		7944F1651F76B572002C1BE5 /* IntroEndViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroEndViewController.swift; sourceTree = "<group>"; };
 		794E68FF1F768CD5001040FC /* Mail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mail.swift; sourceTree = "<group>"; };
 		79673A821F80EA9B00416185 /* IntroBeginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroBeginViewController.swift; sourceTree = "<group>"; };
+		79673A841F80FAC200416185 /* icon-toka.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-toka.png"; sourceTree = "<group>"; };
 		79A487F11F74002400E6BA09 /* BodyEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BodyEditViewController.swift; sourceTree = "<group>"; };
 		79A487F31F74004900E6BA09 /* MailAddressEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MailAddressEditViewController.swift; sourceTree = "<group>"; };
 		79A487F51F74005500E6BA09 /* TitleEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleEditViewController.swift; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 				79CC25A01F7FA57500E31769 /* Icon-App-83.5x83.5@2x.png */,
 				79CC25A11F7FA57500E31769 /* Icon-Small-50x50@1x.png */,
 				79CC25A21F7FA57500E31769 /* Icon-Small-50x50@2x.png */,
+				79673A841F80FAC200416185 /* icon-toka.png */,
 			);
 			name = images;
 			sourceTree = "<group>";
@@ -289,6 +292,7 @@
 				AB53B6711F4D65F900BDD317 /* Intro.storyboard in Resources */,
 				79CC25B51F7FA57500E31769 /* Icon-App-76x76@3x.png in Resources */,
 				79CC25A91F7FA57500E31769 /* Icon-App-40x40@1x.png in Resources */,
+				79673A851F80FAC200416185 /* icon-toka.png in Resources */,
 				79CC25B31F7FA57500E31769 /* Icon-App-76x76@1x.png in Resources */,
 				79CC25A31F7FA57500E31769 /* Icon-App-20x20@1x.png in Resources */,
 				79CC25AB1F7FA57500E31769 /* Icon-App-40x40@3x.png in Resources */,
