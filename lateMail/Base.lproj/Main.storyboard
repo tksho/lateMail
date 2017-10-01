@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -412,9 +413,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Dg-hz-qa8">
-                                <rect key="frame" x="8" y="0.0" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Dg-hz-qa8">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                 <items>
                                     <navigationItem title="名前設定" id="RiM-z1-0yu">
                                         <barButtonItem key="leftBarButtonItem" title="キャンセル" id="gD7-6f-NnV">
@@ -430,29 +430,31 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="C9l-s1-2x0">
-                                <rect key="frame" x="123" y="84" width="204" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="C9l-s1-2x0">
+                                <rect key="frame" x="66" y="74" width="243" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="名前" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CxR-d6-0PI">
-                                <rect key="frame" x="47" y="89" width="35" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="メール件名と本文で利用されます" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SIe-nF-Jcz">
-                                <rect key="frame" x="60" y="147" width="270" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="メール件名と本文で利用されます" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SIe-nF-Jcz">
+                                <rect key="frame" x="66" y="124" width="243" height="14.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="0.92146831750869751" green="0.92162626981735229" blue="0.92145836353302002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="5Dg-hz-qa8" firstAttribute="leading" secondItem="HI2-Pe-CcW" secondAttribute="leading" id="2s8-qv-s29"/>
+                            <constraint firstItem="SIe-nF-Jcz" firstAttribute="top" secondItem="C9l-s1-2x0" secondAttribute="bottom" constant="20" id="Nj3-3I-nBH"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="SIe-nF-Jcz" secondAttribute="trailing" constant="50" id="YEe-0N-C8r"/>
+                            <constraint firstItem="SIe-nF-Jcz" firstAttribute="leading" secondItem="HI2-Pe-CcW" secondAttribute="leadingMargin" constant="50" id="bjm-Kw-Tj3"/>
+                            <constraint firstItem="C9l-s1-2x0" firstAttribute="top" secondItem="5Dg-hz-qa8" secondAttribute="bottom" constant="30" id="kxE-ed-0Ss"/>
+                            <constraint firstItem="C9l-s1-2x0" firstAttribute="leading" secondItem="HI2-Pe-CcW" secondAttribute="leadingMargin" constant="50" id="qmi-8y-0fn"/>
+                            <constraint firstItem="5Dg-hz-qa8" firstAttribute="top" secondItem="HI2-Pe-CcW" secondAttribute="top" id="rAf-s2-9Dp"/>
+                            <constraint firstAttribute="trailing" secondItem="5Dg-hz-qa8" secondAttribute="trailing" id="v4t-vD-5HD"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="C9l-s1-2x0" secondAttribute="trailing" constant="50" id="yRY-x5-rEF"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="fromNameTextField" destination="C9l-s1-2x0" id="brq-CC-vGR"/>
@@ -460,7 +462,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4d3-9b-IHh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1449" y="-1389"/>
+            <point key="canvasLocation" x="1448.8" y="-1389.3553223388308"/>
         </scene>
         <!--Slide View Controller-->
         <scene sceneID="PbB-Jn-lm8">
