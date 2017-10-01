@@ -21,6 +21,11 @@ class MailAddressEditViewController: UIViewController {
     @IBOutlet var bcc3:UITextField! // 宛先bcc1
     var mail: Mail = Mail(title:"", body: "", fromName: "", to1: "", to2: "", to3: "", cc1: "", cc2: "", cc3: "", bcc1: "", bcc2: "", bcc3: "" )
     
+    // キーボードをしまう（TextField以外の部分をタッチしたときに）
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         

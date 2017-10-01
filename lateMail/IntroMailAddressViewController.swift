@@ -8,7 +8,7 @@
 
 import UIKit
 
-class IntroMailAddressViewController: UIViewController {
+class IntroMailAddressViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet var to1:UITextField!  // 宛先To1
     @IBOutlet var to2:UITextField!  // 宛先To2
@@ -20,6 +20,17 @@ class IntroMailAddressViewController: UIViewController {
     @IBOutlet var bcc2:UITextField! // 宛先bcc1
     @IBOutlet var bcc3:UITextField! // 宛先bcc1
     var mail: Mail = Mail(title:"", body: "", fromName: "", to1: "", to2: "", to3: "", cc1: "", cc2: "", cc3: "", bcc1: "", bcc2: "", bcc3: "" )
+    
+    // キーボードをしまう（TextField以外の部分をタッチしたときに）
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+
+    // キーボードをしまう（Textfieldでreturnが押されたとき）
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
     
     //----------------------------------
     // 関数名：clickNextBtn
@@ -55,6 +66,16 @@ class IntroMailAddressViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        to1.delegate = self
+        to2.delegate = self
+        to3.delegate = self
+        cc1.delegate = self
+        cc2.delegate = self
+        cc3.delegate = self
+        bcc1.delegate = self
+        bcc2.delegate = self
+        bcc3.delegate = self
+        
         // 保存データ読み込み
         self.mail.loadFromUd()
     }

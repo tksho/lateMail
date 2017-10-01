@@ -8,11 +8,22 @@
 
 import UIKit
 
-class IntroFromNameViewController: UIViewController {
+class IntroFromNameViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet var fromNameTextField:UITextField!
     var mail: Mail = Mail(title:"", body: "", fromName: "", to1: "", to2: "", to3: "", cc1: "", cc2: "", cc3: "", bcc1: "", bcc2: "", bcc3: "" )
 
+    // キーボードをしまう（TextField以外の部分をタッチしたときに）
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+ 
+    // キーボードをしまう（Textfieldでreturnが押されたとき）
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
     //----------------------------------
     // 関数名：clickNextBtn
     // 説明：次へボタンが押された
@@ -40,7 +51,7 @@ class IntroFromNameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        fromNameTextField.delegate = self
         // 保存データ読み込み
         mail.loadFromUd()
     }
