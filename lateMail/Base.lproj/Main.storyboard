@@ -341,8 +341,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="使えるもの" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8cu-fx-jZU">
-                                <rect key="frame" x="32" y="194" width="87" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="特殊キーワード" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8cu-fx-jZU">
+                                <rect key="frame" x="19" y="194" width="100" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="textColor"/>
@@ -369,15 +369,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="前画面での選択値や設定値が入ります" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i9I-iM-qEm">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i9I-iM-qEm">
                                 <rect key="frame" x="21" y="148" width="337" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="「&lt;理由&gt;&lt;/理由&gt;」や「&lt;名前&gt;&lt;/名前&gt;」には、" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0nB-Rq-5Uy">
-                                <rect key="frame" x="16" y="123" width="343" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="textColor"/>
@@ -390,15 +383,29 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fkv-Q8-ytT">
-                                <rect key="frame" x="31" y="40" width="288" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fkv-Q8-ytT">
+                                <rect key="frame" x="5" y="35" width="310" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="qof-fu-2Ik"/>
+                                </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="「&lt;理由&gt;&lt;/理由&gt;」や「&lt;名前&gt;&lt;/名前&gt;」には、前画面での選択値や設定値が入ります" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0nB-Rq-5Uy">
+                                <rect key="frame" x="16" y="119" width="288" height="46"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.92146831750869751" green="0.92162626981735229" blue="0.92145836353302002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="fkv-Q8-ytT" firstAttribute="top" secondItem="xpb-WS-NHE" secondAttribute="bottom" constant="15" id="KN4-C5-Dxh"/>
+                            <constraint firstAttribute="trailing" secondItem="fkv-Q8-ytT" secondAttribute="trailing" constant="5" id="eb3-hL-x4O"/>
+                            <constraint firstItem="fkv-Q8-ytT" firstAttribute="leading" secondItem="8kP-uG-Rmi" secondAttribute="leading" constant="5" id="gPY-9b-Lq5"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="titleTextField" destination="fkv-Q8-ytT" id="93f-S1-V4Q"/>
@@ -406,7 +413,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Er7-ga-Zoe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3060" y="-825"/>
+            <point key="canvasLocation" x="3060" y="-826.05633802816908"/>
         </scene>
         <!--Profile Edit View Controller-->
         <scene sceneID="kZL-fN-cmp">
@@ -443,8 +450,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="メール件名と本文で利用されます" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SIe-nF-Jcz">
-                                <rect key="frame" x="66" y="124" width="188" height="14.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="メールの件名と本文で「&lt;名前&gt;&lt;/名前&gt;」と書かれた場所に表示されます。" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SIe-nF-Jcz">
+                                <rect key="frame" x="11" y="124" width="293" height="57"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -454,8 +461,8 @@
                         <constraints>
                             <constraint firstItem="5Dg-hz-qa8" firstAttribute="leading" secondItem="HI2-Pe-CcW" secondAttribute="leading" id="2s8-qv-s29"/>
                             <constraint firstItem="SIe-nF-Jcz" firstAttribute="top" secondItem="C9l-s1-2x0" secondAttribute="bottom" constant="20" id="Nj3-3I-nBH"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="SIe-nF-Jcz" secondAttribute="trailing" constant="50" id="YEe-0N-C8r"/>
-                            <constraint firstItem="SIe-nF-Jcz" firstAttribute="leading" secondItem="HI2-Pe-CcW" secondAttribute="leadingMargin" constant="50" id="bjm-Kw-Tj3"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="SIe-nF-Jcz" secondAttribute="trailing" constant="10" id="YEe-0N-C8r"/>
+                            <constraint firstItem="SIe-nF-Jcz" firstAttribute="leading" secondItem="HI2-Pe-CcW" secondAttribute="leadingMargin" constant="10" id="bjm-Kw-Tj3"/>
                             <constraint firstItem="C9l-s1-2x0" firstAttribute="top" secondItem="5Dg-hz-qa8" secondAttribute="bottom" constant="30" id="kxE-ed-0Ss"/>
                             <constraint firstItem="C9l-s1-2x0" firstAttribute="leading" secondItem="HI2-Pe-CcW" secondAttribute="leadingMargin" constant="50" id="qmi-8y-0fn"/>
                             <constraint firstItem="5Dg-hz-qa8" firstAttribute="top" secondItem="HI2-Pe-CcW" secondAttribute="top" id="rAf-s2-9Dp"/>
@@ -469,7 +476,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4d3-9b-IHh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1448.8" y="-1389.3553223388308"/>
+            <point key="canvasLocation" x="1447.5" y="-1390.1408450704225"/>
         </scene>
         <!--Slide View Controller-->
         <scene sceneID="PbB-Jn-lm8">
