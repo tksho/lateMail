@@ -17,8 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         let ud = UserDefaults.standard
-        //let isFirstLaunch = ud.bool(forKey: "isFirstLaunch")
-        let isFirstLaunch = false
+        let isFirstLaunch = ud.bool(forKey: "isFirstLaunch")
 
         // 初回起動なら
         if isFirstLaunch == false {

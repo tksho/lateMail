@@ -493,35 +493,35 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TzG-bS-aVL">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="設定完了！" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kWi-dS-b9M">
-                                        <rect key="frame" x="144" y="164" width="87" height="34"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Drg-uP-scw">
-                                        <rect key="frame" x="111" y="418" width="153" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="さっそくアプリを使う"/>
-                                        <connections>
-                                            <action selector="finishIntroBtn" destination="B8h-dX-lEe" eventType="touchUpInside" id="hra-et-Lwg"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="設定完了！" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kWi-dS-b9M">
+                                <rect key="frame" x="21" y="160" width="333" height="29"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Drg-uP-scw">
+                                <rect key="frame" x="21" y="329" width="333" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="さっそくアプリを使う"/>
+                                <connections>
+                                    <action selector="finishIntroBtn" destination="B8h-dX-lEe" eventType="touchUpInside" id="hra-et-Lwg"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.92146831750869751" green="0.92162626981735229" blue="0.92145836353302002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="kWi-dS-b9M" secondAttribute="trailing" constant="5" id="BUA-Jv-VIn"/>
+                            <constraint firstItem="Drg-uP-scw" firstAttribute="top" secondItem="kWi-dS-b9M" secondAttribute="bottom" constant="140" id="BVh-4T-9kb"/>
+                            <constraint firstItem="kWi-dS-b9M" firstAttribute="leading" secondItem="5Yb-ny-OxE" secondAttribute="leadingMargin" constant="5" id="MTZ-3Y-Evx"/>
+                            <constraint firstItem="Drg-uP-scw" firstAttribute="leading" secondItem="5Yb-ny-OxE" secondAttribute="leadingMargin" constant="5" id="Z6N-fC-n81"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Drg-uP-scw" secondAttribute="trailing" constant="5" id="doQ-gn-ge5"/>
+                            <constraint firstItem="kWi-dS-b9M" firstAttribute="top" secondItem="vf4-hc-5dm" secondAttribute="bottom" constant="140" id="z8l-mQ-7He"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3c2-5m-ivX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1292" y="-107"/>
+            <point key="canvasLocation" x="1292" y="-107.49625187406298"/>
         </scene>
     </scenes>
     <resources>
