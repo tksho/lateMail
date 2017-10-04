@@ -36,6 +36,14 @@ class TitleEditViewController: UIViewController {
     }
     
     //----------------------------------
+    // 関数名：clickInitBtn
+    // 説明：初期状態に戻すボタンが押された
+    //----------------------------------
+    @IBAction func clickInitBtn() {
+        self.titleTextField.text = "<名前></名前>、遅刻"
+    }
+    
+    //----------------------------------
     // 関数名：clickSaveBtn
     // 説明：保存ボタンが押された
     //----------------------------------

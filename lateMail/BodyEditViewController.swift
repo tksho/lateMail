@@ -34,6 +34,14 @@ class BodyEditViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+
+    //----------------------------------
+    // 関数名：clickInitBtn
+    // 説明：初期状態に戻すボタンが押された
+    //----------------------------------
+    @IBAction func clickInitBtn() {
+        self.bodyTextView.text = "お疲れ様です。\n<名前></名前>です。\n\nすみませんが<理由></理由>により、\n<遅延時間></遅延時間>ほど遅れます。\n\nすみませんがよろしくお願いします。"
+    }
     
     //----------------------------------
     // 関数名：clickSaveBtn
