@@ -48,7 +48,7 @@
 		AB53B6711F4D65F900BDD317 /* Intro.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB53B6701F4D65F900BDD317 /* Intro.storyboard */; };
 		AB53B6861F56925D00BDD317 /* SlideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB53B6851F56925D00BDD317 /* SlideViewController.swift */; };
 		ABA8E7C11F5696FD0044D613 /* LeftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA8E7C01F5696FD0044D613 /* LeftViewController.swift */; };
-		ABA8E7C51F56A2EE0044D613 /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = ABA8E7C41F56A2EE0044D613 /* menu.png */; };
+		ABB7E57F1F84BD5F000E510A /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = ABB7E57E1F84BD5F000E510A /* menu.png */; };
 		C1074CF117CB99D74DB67F02 /* Pods_lateMail.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD333AD34B05E5C84168DAFE /* Pods_lateMail.framework */; };
 /* End PBXBuildFile section */
 
@@ -97,7 +97,7 @@
 		AB53B6701F4D65F900BDD317 /* Intro.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Intro.storyboard; sourceTree = "<group>"; };
 		AB53B6851F56925D00BDD317 /* SlideViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideViewController.swift; sourceTree = "<group>"; };
 		ABA8E7C01F5696FD0044D613 /* LeftViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftViewController.swift; sourceTree = "<group>"; };
-		ABA8E7C41F56A2EE0044D613 /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu.png; sourceTree = "<group>"; };
+		ABB7E57E1F84BD5F000E510A /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu.png; sourceTree = "<group>"; };
 		E483E42133AB31746968FFBD /* Pods-lateMail.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lateMail.debug.xcconfig"; path = "Pods/Target Support Files/Pods-lateMail/Pods-lateMail.debug.xcconfig"; sourceTree = "<group>"; };
 		FD333AD34B05E5C84168DAFE /* Pods_lateMail.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_lateMail.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -127,7 +127,6 @@
 		79CC258C1F7FA54600E31769 /* images */ = {
 			isa = PBXGroup;
 			children = (
-				ABA8E7C41F56A2EE0044D613 /* menu.png */,
 				79CC258D1F7FA57500E31769 /* Icon-App-20x20@1x.png */,
 				79CC258E1F7FA57500E31769 /* Icon-App-20x20@2x.png */,
 				79CC258F1F7FA57500E31769 /* Icon-App-20x20@3x.png */,
@@ -151,6 +150,7 @@
 				79CC25A11F7FA57500E31769 /* Icon-Small-50x50@1x.png */,
 				79CC25A21F7FA57500E31769 /* Icon-Small-50x50@2x.png */,
 				79673A841F80FAC200416185 /* icon-toka.png */,
+				ABB7E57E1F84BD5F000E510A /* menu.png */,
 			);
 			name = images;
 			sourceTree = "<group>";
@@ -278,9 +278,9 @@
 				79CC25AE1F7FA57500E31769 /* Icon-App-60x60@1x.png in Resources */,
 				79CC25B61F7FA57500E31769 /* Icon-App-83.5x83.5@2x.png in Resources */,
 				AB53B6691F4D507E00BDD317 /* LaunchScreen.storyboard in Resources */,
+				ABB7E57F1F84BD5F000E510A /* menu.png in Resources */,
 				79CC25AC1F7FA57500E31769 /* Icon-App-57x57@1x.png in Resources */,
 				79CC25A41F7FA57500E31769 /* Icon-App-20x20@2x.png in Resources */,
-				ABA8E7C51F56A2EE0044D613 /* menu.png in Resources */,
 				79CC25B11F7FA57500E31769 /* Icon-App-72x72@1x.png in Resources */,
 				79CC25A81F7FA57500E31769 /* Icon-App-29x29@3x.png in Resources */,
 				79CC25B01F7FA57500E31769 /* Icon-App-60x60@3x.png in Resources */,

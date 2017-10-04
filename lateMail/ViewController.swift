@@ -150,6 +150,7 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate{
         self.performSegue(withIdentifier: "toBodyEdit", sender: nil)
     }
 
+    
     override func viewWillAppear(_ animated: Bool) {
         
         // 保存データ読み込み
@@ -175,7 +176,6 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate{
     }
 
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // NavigationBarが半透明かどうか

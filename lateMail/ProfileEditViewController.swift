@@ -48,8 +48,6 @@ class ProfileEditViewController: UIViewController {
         self.mail.fromName = self.fromNameTextField.text
         self.mail.saveToUd()
         
-        print("保存しました")
-        
         self.dismiss(animated: true, completion: nil)
         
     }
