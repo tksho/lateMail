@@ -35,10 +35,10 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate{
         selectedTime    = time.titleForSegment(at: timeSelectedIndex)!
 
         // 件名を置換
-        self.mail.title = self.mail.changeTitle(inReason: selectedReason, inTime: selectedTime)
+        self.mail.title = self.mail.changeTitle(selectedReason, inTime: selectedTime)
 
         // 本文を置換
-        self.mail.body = self.mail.changeBody(inReason: selectedReason, inTime: selectedTime)
+        self.mail.body = self.mail.changeBody(selectedReason, inTime: selectedTime)
 
         // 表示用のメール本文を作り表示
         self.mailBodyLabel.text = self.mail.dispBody()
@@ -97,7 +97,7 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate{
     // 関数名：clickSendOtherBtn
     // 説明：[その他]ボタンが押された
     //----------------------------------
-    @IBAction func clickSendOtherBtn(sender: AnyObject) {
+    @IBAction func clickSendOtherBtn(_ sender: AnyObject) {
         let text = "sample text"
         let items = [text]
         
@@ -139,8 +139,8 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate{
         selectedTime    = time.titleForSegment(at: timeSelectedIndex)!
         
         // 本文と件名を置換
-        self.mail.title = self.mail.changeTitle(inReason: selectedReason, inTime: selectedTime)
-        self.mail.body = self.mail.changeBody(inReason: selectedReason, inTime: selectedTime)
+        self.mail.title = self.mail.changeTitle(selectedReason, inTime: selectedTime)
+        self.mail.body = self.mail.changeBody(selectedReason, inTime: selectedTime)
         
         // 表示用のメール件名と本文を作り表示
         self.mailTitleLabel.text = self.mail.dispTitle()

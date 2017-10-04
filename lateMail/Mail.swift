@@ -84,7 +84,7 @@ class Mail: NSObject {
     // 関数名：changeTitle
     // 説明：引数の「理由」と「時間」で件名を書き換え
     //----------------------------------
-    func changeTitle(inReason: String, inTime: String) -> String {
+    func changeTitle(_ inReason: String, inTime: String) -> String {
         // 件名取得
         let mutableTitle: NSMutableString = NSMutableString(string: self.title)
         
@@ -110,7 +110,7 @@ class Mail: NSObject {
     // 関数名：changeBody
     // 説明：引数の「理由」と「時間」で本文を書き換え
     //----------------------------------
-    func changeBody(inReason: String, inTime: String) -> String {
+    func changeBody(_ inReason: String, inTime: String) -> String {
     
         // 本文取得
         let mutableBody: NSMutableString = NSMutableString(string: self.body)
