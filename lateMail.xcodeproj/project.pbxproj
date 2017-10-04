@@ -244,6 +244,7 @@
 					AB53B65A1F4D507D00BDD317 = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = 39K484354G;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
 				};

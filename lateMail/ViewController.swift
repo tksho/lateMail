@@ -71,24 +71,49 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate{
     // 説明：[メール]ボタンが押された
     //----------------------------------
     @IBAction func clickSendMailBtn() {
-        print("mail")
+        
         //メールを送信できるかチェック
-        if MFMailComposeViewController.canSendMail()==false {
-            print("Email Send Failed")
+        if MFMailComposeViewController.canSendMail() == false {
+            let alert = UIAlertController(title: "エラー", message: "メーラーが見つかりません", preferredStyle: .alert)
+            
+            let okAction = UIAlertAction(title: "OK", style: .default, handler: { (okAction) in
+                // OKボタンを押したときのアクション
+                alert.dismiss(animated: true, completion: nil)
+            })
+            // アラート表示
+            alert.addAction(okAction)
+            self.present(alert, animated: true, completion: nil)
             return
         }
-        
+
+        // 保存データ読み込み
+        self.mail.loadFromUd()
         let mailViewController = MFMailComposeViewController()
-        let toRecipients = ["to@1gmail.com","tksho112@gmail.com"] //Toのアドレス指定
-        let CcRecipients = ["cc@1gmail.com","Cc2@1gmail.com"] //Ccのアドレス指定
-        let BccRecipients = ["Bcc@1gmail.com","Bcc2@1gmail.com"] //Bccのアドレス指定
-        
+
+        // Toアドレスの指定
+        var toRecipients = [String]()
+        if self.mail.to1! != "" { toRecipients.append(self.mail.to1!) }
+        if self.mail.to2! != "" { toRecipients.append(self.mail.to2!) }
+        if self.mail.to3! != "" { toRecipients.append(self.mail.to3!) }
+
+        // Ccアドレスの指定
+        var CcRecipients = [String]()
+        if self.mail.cc1! != "" { CcRecipients.append(self.mail.cc1!) }
+        if self.mail.cc2! != "" { CcRecipients.append(self.mail.cc2!) }
+        if self.mail.cc3! != "" { CcRecipients.append(self.mail.cc3!) }
+
+        // Bccアドレスの指定
+        var BccRecipients = [String]()
+        if self.mail.bcc1! != "" { BccRecipients.append(self.mail.bcc1!) }
+        if self.mail.bcc2! != "" { BccRecipients.append(self.mail.bcc2!) }
+        if self.mail.bcc3! != "" { BccRecipients.append(self.mail.bcc3!) }
+
         mailViewController.mailComposeDelegate = self
-        mailViewController.setSubject("メールの件名")
-        mailViewController.setToRecipients(toRecipients) //Toアドレスの表示
-        mailViewController.setCcRecipients(CcRecipients) //Ccアドレスの表示
-        mailViewController.setBccRecipients(BccRecipients) //Bccアドレスの表示
-        mailViewController.setMessageBody("メールの本文", isHTML: false)
+        mailViewController.setToRecipients(toRecipients)    //Toアドレスの表示
+        mailViewController.setCcRecipients(CcRecipients)    //Ccアドレスの表示
+        mailViewController.setBccRecipients(BccRecipients)  //Bccアドレスの表示
+        mailViewController.setSubject(self.mailTitleLabel.text!)                    // 件名
+        mailViewController.setMessageBody(self.mailBodyLabel.text!, isHTML: false)  // 本文
         
         self.present(mailViewController, animated: true, completion: nil)
     }
@@ -98,13 +123,14 @@ class ViewController: UIViewController, MFMailComposeViewControllerDelegate{
     // 説明：[その他]ボタンが押された
     //----------------------------------
     @IBAction func clickSendOtherBtn(_ sender: AnyObject) {
-        let text = "sample text"
+        
+        // 本文をitemsにセット
+        self.mail.loadFromUd()
+        let text = self.mailBodyLabel.text!
         let items = [text]
         
-        // UIActivityViewControllerをインスタンス化
+        // UIActivityViewControllerを表示
         let activityVc = UIActivityViewController(activityItems: items, applicationActivities: nil)
-        
-        // UIAcitivityViewControllerを表示
         self.present(activityVc, animated: true, completion: nil)
     }
 
