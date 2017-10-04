@@ -43,11 +43,17 @@ class BodyEditViewController: UIViewController {
         // 保存
         self.mail.body = self.bodyTextView.text
         self.mail.saveToUd()
-        
-        print("保存しました")
-        
-        self.dismiss(animated: true, completion: nil)
-        
+ 
+        // アラート表示
+        let alert = UIAlertController(title: "保存しました！", message: "", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default) { (okAction) in
+            // OKが押されたらアラートを消して前画面に戻る
+            alert.dismiss(animated: true, completion: nil)
+            self.navigationController?.popViewController(animated: true)
+        }
+        alert.addAction(okAction)
+        self.present(alert, animated: true, completion: nil)
+
     }
 
 }
