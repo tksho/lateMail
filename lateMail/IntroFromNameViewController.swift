@@ -29,8 +29,23 @@ class IntroFromNameViewController: UIViewController, UITextFieldDelegate {
     // 説明：次へボタンが押された
     //----------------------------------
     @IBAction func clickNextBtn(){
-        // 入力値を保存
-        if fromNameTextField.text != "" {
+        if fromNameTextField.text == "" {
+            // 入力値を保存
+            let alert = UIAlertController(title: "入力内容が空です", message: "OKを押すと、入力値を「苗字」として保存します。この設定はメニューの[名前設定]から後で変更できます。", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: .default) { (okAction) in
+                // OKが押されたらアラートを消す
+                alert.dismiss(animated: true, completion: nil)
+                // イントロ次画面へ遷移
+                self.performSegue(withIdentifier: "toIntroAddress", sender: nil)
+            }
+            let cancelAction = UIAlertAction(title: "キャンセル", style: .default, handler: { (cancelAction) in
+                alert.dismiss(animated: true, completion: nil)
+            })
+            alert.addAction(okAction)
+            alert.addAction(cancelAction)
+            self.present(alert, animated: true, completion: nil)
+        } else {
+            // 入力値を保存
             self.mail.fromName = fromNameTextField.text
             self.mail.saveToUd()
         }

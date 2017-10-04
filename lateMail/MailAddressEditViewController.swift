@@ -51,6 +51,7 @@ class MailAddressEditViewController: UIViewController {
     // 説明：保存ボタンが押された
     //----------------------------------
     @IBAction func clickSaveBtn() {
+        
         // 保存
         self.mail.to1 = self.to1.text
         self.mail.to2 = self.to2.text

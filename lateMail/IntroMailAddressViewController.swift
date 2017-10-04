@@ -37,6 +37,8 @@ class IntroMailAddressViewController: UIViewController, UITextFieldDelegate {
     // 説明：次へボタンが押された
     //----------------------------------
     @IBAction func clickNextBtn() {
+
+        
         // 保存
         self.mail.to1 = self.to1.text
         self.mail.to2 = self.to2.text
