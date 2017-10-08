@@ -31,8 +31,9 @@ class IntroFromNameViewController: UIViewController, UITextFieldDelegate {
     @IBAction func clickNextBtn(){
         if fromNameTextField.text == "" {
             // 入力値を保存
-            let alert = UIAlertController(title: "入力内容が空です", message: "OKを押すと、入力値を「苗字」として保存します。この設定はメニューの[名前設定]から後で変更できます。", preferredStyle: .alert)
-            let okAction = UIAlertAction(title: "OK", style: .default) { (okAction) in
+            // 入力値を保存
+            let alert = UIAlertController(title: "入力内容が空です", message: "[次へ]をタップすると名前を「苗字」として保存します。この設定はメニューの[名前設定]から後で変更できます。", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "次へ", style: .default) { (okAction) in
                 // OKが押されたらアラートを消す
                 alert.dismiss(animated: true, completion: nil)
                 // イントロ次画面へ遷移
