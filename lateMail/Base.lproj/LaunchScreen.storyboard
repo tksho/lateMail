@@ -29,12 +29,18 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="遅刻らくらくメール" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T1I-mi-jBy">
-                                <rect key="frame" x="21" y="188" width="333" height="26"/>
+                                <rect key="frame" x="21" y="158" width="333" height="26"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="26" id="Mvz-ki-IOg"/>
                                     <constraint firstAttribute="width" constant="333" id="crS-9f-CQY"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="＼遅れます！／　　　　　" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Po1-05-aDW">
+                                <rect key="frame" x="95.5" y="241" width="184" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -42,7 +48,9 @@
                         <color key="backgroundColor" red="0.92156862745098034" green="0.92156862745098034" blue="0.92156862745098034" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="DOl-4e-3Lx" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="Cgb-DZ-vjK"/>
-                            <constraint firstItem="DOl-4e-3Lx" firstAttribute="top" secondItem="T1I-mi-jBy" secondAttribute="bottom" constant="20" id="cN7-fh-QHl"/>
+                            <constraint firstItem="DOl-4e-3Lx" firstAttribute="top" secondItem="Po1-05-aDW" secondAttribute="bottom" constant="-25" id="IWY-xi-zqf"/>
+                            <constraint firstItem="Po1-05-aDW" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="W3c-0J-sNy"/>
+                            <constraint firstItem="DOl-4e-3Lx" firstAttribute="top" secondItem="T1I-mi-jBy" secondAttribute="bottom" constant="50" id="cN7-fh-QHl"/>
                             <constraint firstItem="T1I-mi-jBy" firstAttribute="centerX" secondItem="DOl-4e-3Lx" secondAttribute="centerX" id="dnE-Rq-Ze4"/>
                             <constraint firstItem="DOl-4e-3Lx" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="xrs-B0-cF7"/>
                         </constraints>
